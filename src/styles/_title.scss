@@ -1,0 +1,17 @@
+@import './variables';
+
+.title {
+  display: flex;
+  font-family: $primary-font;
+  &__one {
+    padding-left: 10px;
+    color: $secundary-color;
+    text-shadow: 5px 5px 5px $grey-color-two;
+  }
+  &__two {
+    padding-left: 10px;
+    color: $primary-color;
+    text-shadow: 5px 5px 5px $grey-color-two;
+  }
+}
+

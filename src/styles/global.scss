@@ -1,4 +1,6 @@
 @import './variables';
+@import './grid';
+@import './forms';
 @import './title';
 @import './header';
 @import './buttonPrimary';
@@ -14,4 +16,5 @@
 }
 body {
   background-color: $white-color;
+  font-family: $primary-font;
 }

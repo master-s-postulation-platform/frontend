@@ -13,3 +13,17 @@
   box-shadow: 3px 3px $grey-color-two;
   cursor: pointer;
 }
+
+.primary__button {
+  @extend .button-name;
+  margin: 1rem 1rem 1rem 0;
+  display: inline-block;
+  padding: 1rem;
+  width: auto;
+  height: auto  
+}
+
+.secondary__button {
+  @extend .primary__button;
+  background-color: $primary-color;
+}

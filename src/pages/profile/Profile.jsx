@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from '../../src/components/header/Header'
-import Footer from '../../src/components/footer/Footer'
-import ButtonPrimary from '../../src/components/buttons/ButtonPrimary'
+import Header from '../../components/header/Header'
+import Footer from '../../components/footer/Footer'
+import ButtonPrimary from '../../components/buttons/ButtonPrimary'
 
 const Profile = () => {
     return (
@@ -9,7 +9,15 @@ const Profile = () => {
             <section className="section__background">
                 <section className="section__content">
                     <section className="section__grid">
+
+                    <h3 className="form__title">
+                        Crear perfil
+                    </h3>
+                        
                     <form className="form">
+                        <h4 className="form__subtitle">
+                            Ingrese la siguiente información:
+                        </h4>
                         <label className="form__label" htmlFor="apellidos">
                             <span>Apellidos:</span>
                             <input className="form__input" type="text" placeholder="Apellidos" name="apellidos"/>

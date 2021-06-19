@@ -3,6 +3,7 @@ import Lupa from '../icons/Lupa';
 import Bombilla from '../icons/Bombilla';
 import House from '../icons/House';
 import '../../styles/global.scss';
+import { Link } from 'react-router-dom';
 
 class Landing extends React.Component {
   render() {
@@ -28,9 +29,11 @@ class Landing extends React.Component {
               <p>Enviar <br/>postulación</p>
             </button>
           </div>
-          <button className="landing__submit">
-            INICIAR POSTULACIÓN
-          </button>
+          <Link to='/login'>
+            <button className="landing__submit">
+              INICIAR POSTULACIÓN
+            </button>
+          </Link>
         </div>
       </>
     )

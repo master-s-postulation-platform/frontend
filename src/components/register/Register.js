@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../styles/global.scss';
+import ButtonPrimary from '../buttons/ButtonPrimary'
 
 class Register extends React.Component {
   render() {

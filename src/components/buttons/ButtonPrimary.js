@@ -1,16 +1,14 @@
 import React from 'react';
 import '../../styles/global.scss';
 
-class ButtonPrimary extends React.Component {
-  render() {
+const ButtonPrimary = ({value}) => {
     return(
       <>
         <button className="button-name">
-          INICIAR SESIÓN
+          {value}
         </button>
       </>
     )
-  }
 }
 
 export default ButtonPrimary;

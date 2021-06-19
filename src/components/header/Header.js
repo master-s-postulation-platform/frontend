@@ -18,7 +18,9 @@ class Header extends React.Component {
           <Title/>
         </div>
         <Link to='/login'>
-          <ButtonPrimary/>
+          <ButtonPrimary
+            value='INICIAR SESIÓN'
+          />
         </Link>
       </div>
       </>

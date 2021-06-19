@@ -19,6 +19,7 @@ export default class Login extends Component {
                 type="text"
                 placeholder="Ingrese correo electrónico"
               />
+             {false && <p>Debe ser un correo electronico</p>}
               <br/>
               <input
                 className="login__form--input"

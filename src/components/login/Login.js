@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../../styles/global.scss';
-
-class Login extends React.Component {
+import { Link } from 'react-router-dom';
+export default class Login extends Component {
   render() {
     return(
       <>
@@ -13,10 +13,18 @@ class Login extends React.Component {
           <h4 className="login__container--title">
             Ingrese la siguiente información:
           </h4>
-            <form className="login__form>">
-              <input className="login__form--input" type="email" placeholder="Ingrese correo electrónico"/>
+            <form  className="login__form>">
+              <input
+                className="login__form--input"
+                type="text"
+                placeholder="Ingrese correo electrónico"
+              />
               <br/>
-              <input className="login__form--input" type="password" placeholder="Ingrese contraseña"/>
+              <input
+                className="login__form--input"
+                type="password"
+                placeholder="Ingrese contraseña"
+              />
               <br/>
               <p className="login__form--text">¿Olvidó su contraseña?</p>
               <br/>
@@ -24,7 +32,9 @@ class Login extends React.Component {
               <br/>
               <p className="login__form--text">¿No tiene una cuenta?</p>
               <br/>
-              <button className="login__form--btn" type="submit">CREAR UNA CUENTA</button>
+              <Link to='/register'>
+                <button className="login__form--btn">CREAR UNA CUENTA</button>
+              </Link>
             </form>
           </div>
         </div>
@@ -32,5 +42,3 @@ class Login extends React.Component {
     )
   }
 }
-
-export default Login;

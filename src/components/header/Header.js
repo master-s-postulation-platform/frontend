@@ -4,16 +4,22 @@ import Title from '../icons/Title';
 import ButtonPrimary from '../buttons/ButtonPrimary';
 import '../../styles/global.scss';
 
+import { Link } from 'react-router-dom';
+
 class Header extends React.Component {
   render() {
     return(
       <>
       <div className="header">
         <div className="logo-name">
-          <Logo />
+          <Link to='/'>
+            <Logo />
+          </Link>
           <Title/>
         </div>
-        <ButtonPrimary/>
+        <Link to='/login'>
+          <ButtonPrimary/>
+        </Link>
       </div>
       </>
     )

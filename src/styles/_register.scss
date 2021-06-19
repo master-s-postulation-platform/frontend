@@ -1,0 +1,85 @@
+@import './variables';
+
+.register {
+  max-width: 1440px;
+  margin: auto;
+  height: 770px;
+  font-family: $primary-font;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__title {
+    font-size: 26px;
+    color: $secundary-color;
+    padding-bottom: 30px;
+  }
+  &__container {
+    width:500px;
+    height: 525px;
+    border-radius: 15px;
+    box-shadow: 4px 2px 12px 6px rgba(0,0,0,0.19);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__container--title {
+    font-size: 22px;
+    color: $secundary-color;
+    font-weight: 500;
+    text-align: center;
+  }
+  &__form {
+    font-family: $primary-font;
+    display: flex;
+  }
+  label {
+    color: $secundary-color;
+  }
+  &__form {
+    font-family: $primary-font;
+    display: flex;
+  }
+  &__form--input {
+    width: 441px;
+    height: 40px;
+    background-color: $grey-color-one;
+    border: none;
+    outline: none;
+    /* margin-top: 30px; */
+  }
+  &__form--input::placeholder {
+    font-family: $primary-font;
+    font-weight: 600;
+    color: $grey-color-two;
+    padding-left: 5px;
+  }
+  &__form--text {
+    font-size: 16px;
+    font-weight: 500;
+    color: $secundary-color;
+    padding-top: 32px;
+    padding-bottom: 10px;
+  }
+  &__form--password {
+    color: $grey-color-two;
+    font-weight: 500;
+    padding-bottom: 15px;
+  }
+  &__form-buttons {
+    width: 441px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+  }
+  &__form--btn {
+    @extend .button-name;
+    width: 210px;
+  }
+  &__form--btn1 {
+    @extend .register__form--btn;
+    color: $grey-color-three;
+    background-color: $grey-color-one;
+  }
+}

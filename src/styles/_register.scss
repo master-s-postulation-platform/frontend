@@ -47,13 +47,12 @@
     background-color: $grey-color-one;
     border: none;
     outline: none;
-    /* margin-top: 30px; */
   }
   &__form--input::placeholder {
     font-family: $primary-font;
     font-weight: 600;
     color: $grey-color-two;
-    padding-left: 5px;
+    /* padding-left: 5px; */
   }
   &__form--text {
     font-size: 16px;
@@ -82,4 +81,10 @@
     color: $grey-color-three;
     background-color: $grey-color-one;
   }
+}
+
+.error {
+  font-size: 10px;
+  color: $secundary-color;
+  font-weight: 500;
 }

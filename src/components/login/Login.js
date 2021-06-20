@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../styles/global.scss';
+import Input from '../input/Input';
 import { Link } from 'react-router-dom';
 export default class Login extends Component {
   render() {
@@ -14,18 +15,16 @@ export default class Login extends Component {
             Ingrese la siguiente información:
           </h4>
             <form  className="login__form>">
-              <input
-                className="login__form--input"
-                type="text"
-                placeholder="Ingrese correo electrónico"
-              />
-             {false && <p>Debe ser un correo electronico</p>}
+            <Input
+              tipo="email"
+              placeholder="Ingrese correo electrónico"
+            />
+            {false && <p>Debe ser un correo electronico</p>}
               <br/>
-              <input
-                className="login__form--input"
-                type="password"
-                placeholder="Ingrese contraseña"
-              />
+              <Input
+              tipo="password"
+              placeholder="Ingrese contreseña"
+            />
               <br/>
               <p className="login__form--text">¿Olvidó su contraseña?</p>
               <br/>

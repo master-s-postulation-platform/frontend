@@ -16,10 +16,12 @@ class Landing extends React.Component {
             siguientes pasos.
           </p>
           <div className="landing__container">
+          <Link to='/profile'>
             <button className="landing__btn">
               <Lupa/>
               <p>Crea una cuenta</p>
             </button>
+          </Link>
             <button className="landing__btn1">
               <Bombilla/>
               <p>Llena tú perfil</p>

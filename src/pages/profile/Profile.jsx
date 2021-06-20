@@ -46,8 +46,9 @@ const Profile = () => {
                                 <span>Estado civil:</span>
                                 <select name="estado_civil" className="form__select">
                                     <option>Selecciona una opción</option>
-                                    <option value="femenino">Femenino</option>
-                                    <option value="masculino">Masculino</option>
+                                    <option value="Soltero">Soltero</option>
+                                    <option value="Casado">Casado</option>
+                                    <option value="union-libre">Unión Libre</option>
                                 </select>
                             </label>
                             <label className="form__label" htmlFor="pais_residencia">

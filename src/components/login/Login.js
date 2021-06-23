@@ -2,11 +2,14 @@ import React, { Component, useState, useEffect } from 'react';
 import '../../styles/global.scss';
 import Input1 from '../input/Input1';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
   
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+
+  let history = useHistory();
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -60,6 +63,7 @@ const Login = () => {
       .then(data => {
         console.log(JSON.stringify(data))
         alert(JSON.stringify(data))
+        history.push('/profile');
       })
   }
 

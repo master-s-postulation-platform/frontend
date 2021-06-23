@@ -37,8 +37,9 @@ const Input1 = ({resultado, cambioResultado, estado, cambiarEstado, tipo, placeh
         valido={resultado}
       />
       {/*  La idea de esta linea es poder dar feedback al usuario */}
-      {/* { resultado === 'true' ? '':<p className="error">{leyendaerror}</p>
-      } */}
+      { 
+        resultado === 'true' ? '': <p className="error"> {leyendaerror} </p>
+      }
     </>
   )
 }

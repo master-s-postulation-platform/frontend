@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import '../../styles/global.scss';
 import Input1 from '../input/Input1';
 
 const Register = () => {
+
   const [email, cambioEmail] = useState('');
   const [password, cambioPassword] = useState('');
   const [password2, cambioPassword2] = useState('');
@@ -18,9 +19,54 @@ const Register = () => {
     if (password.length > 0){
       if(password !== password2){
         console.log('Las contraseñas no son iguales')
+        return false
       } else {
         console.log('Las contraseñas son iguales')
+        return true
       }
+    }
+  }
+
+  const sendRegister = () => {
+    
+      let request = {
+        "email": email,
+        "password": password,
+        "re_password": password2
+      }  
+
+      fetch('https://api.hardmakers.com/api/v1/users/',{
+        method: 'POST', // or 'PUT'
+        body: JSON.stringify(request), // data can be `string` or {object}!
+        headers:{
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+      })
+      // .then(()=>{
+      //   let test = {
+      //       "email": "jcpablo100@gmail.com"
+      //   }
+
+      //   if (test === email) {
+      //     console.log('correo creado con éxito')
+      //   }
+      // })
+
+  
+  }
+
+  const handleSubmitClick = (e) => {
+    e.preventDefault();
+    
+    if (!validarPassword2()) {
+      console.log('password no son iguales')
+    }
+    else {
+      sendRegister()
     }
   }
 
@@ -79,11 +125,12 @@ const Register = () => {
                   leyendaerror="Debe ingresar un correo electrónico"
                   expresionRegular=""
                   funcion={validarPassword2()}
+                  onChange={validarPassword2}
               />
               </label>
               <br/>
               <div className="register__form-buttons">
-              <button className="register__form--btn" type="submit">REGISTRO</button>
+              <button className="register__form--btn" type="submit" onClick={handleSubmitClick}>REGISTRO</button>
               <button className="register__form--btn1" type="submit">CANCELAR</button>
               </div>
             </form>

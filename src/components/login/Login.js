@@ -63,7 +63,7 @@ const Login = () => {
       .then(data => {
         console.log(JSON.stringify(data))
         alert(JSON.stringify(data))
-        history.push('/profile');
+        // history.push('/profile');
       })
   }
 

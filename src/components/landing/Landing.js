@@ -31,7 +31,7 @@ class Landing extends React.Component {
               <p>Enviar <br/>postulación</p>
             </button>
           </div>
-          <Link to='/login'>
+          <Link to='/register'>
             <button className="landing__submit">
               INICIAR POSTULACIÓN
             </button>

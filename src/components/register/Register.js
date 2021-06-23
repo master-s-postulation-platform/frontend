@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import '../../styles/global.scss';
 import Input1 from '../input/Input1';
+import { useHistory } from 'react-router-dom';
 
 const Register = () => {
 
@@ -9,6 +10,7 @@ const Register = () => {
   const [password2, cambioPassword2] = useState('');
   const [result, cambioResult] = useState(null);
 
+  let history = useHistory();
 
   const expresiones = {
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
@@ -45,11 +47,10 @@ const Register = () => {
       .then(response => {
         console.log(response.status)
         if (response.status === 201) {
-          
-          // Redirige
+          history.push('/login');
         } else {
           console.log('Error')
-          
+          /* var error = "error"; */
         }
       })
       .then(data => {
@@ -89,6 +90,7 @@ const Register = () => {
           <h4 className="register__container--title">
             Ingrese la siguiente información:
           </h4>
+            {/* { error === <p>El usuario ya se encuentra registrado</p>} */}
             <form action="" className="register__form>">
               <label>
                 <p className="register__form--text">Dirección de correo es válido</p>

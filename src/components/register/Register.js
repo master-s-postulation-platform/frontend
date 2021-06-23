@@ -42,7 +42,16 @@ const Register = () => {
           'Content-Type': 'application/json'
         }
       })
-      .then(response => response.json())
+      .then(response => {
+        console.log(response.status)
+        if (response.status === 201) {
+          
+          // Redirige
+        } else {
+          console.log('Error')
+          
+        }
+      })
       .then(data => {
         console.log(data)
       })

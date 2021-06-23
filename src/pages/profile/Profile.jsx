@@ -1,7 +1,4 @@
 import React from 'react'
-import Header from '../../components/header/Header'
-import Footer from '../../components/footer/Footer'
-import ButtonPrimary from '../../components/buttons/ButtonPrimary'
 
 const Profile = () => {
     return (
@@ -18,6 +15,8 @@ const Profile = () => {
                         <h4 className="form__subtitle">
                             Ingrese la siguiente información:
                         </h4>
+
+                        <h5>Información personal:</h5>
                         <label className="form__label" htmlFor="apellidos">
                             <span>Apellidos:</span>
                             <input className="form__input" type="text" placeholder="Apellidos" name="apellidos"/>
@@ -51,20 +50,46 @@ const Profile = () => {
                                     <option value="union-libre">Unión Libre</option>
                                 </select>
                             </label>
-                            <label className="form__label" htmlFor="pais_residencia">
-                                <span>País de residencia</span>
-                                <select name="pais_residencia" className="form__select">
-                                    <option disabled>Selecciona una opción</option>
-                                    <option value="femenino">Colombia</option>
-                                    <option value="masculino">México</option>
-                                </select>
-                            </label>
-
                         </div>
+
+                        <h5>Dirección:</h5>
+                        <label className="form__label" htmlFor="pais_residencia">
+                            <span>País de residencia</span>
+                            <select name="pais_residencia" className="form__select">
+                                <option disabled>Selecciona una opción</option>
+                                <option value="femenino">Colombia</option>
+                                <option value="masculino">México</option>
+                            </select>
+                        </label>
+                        <label className="form__label" htmlFor="direccion">
+                            <span>Dirección de residencia:</span>
+                            <input className="form__input" type="text" placeholder="Direccion" name="direccion"/>
+                        </label>
+
+                        <h5>Contacto:</h5>
+                        <div className="form__column--2">
+                            <label className="form__label" htmlFor="telefono_fijo">
+                                <span>Teléfono fijo:</span>
+                                <input className="form__input" type="number" name="telefono_fijo" /> 
+                            </label>
+                            <label className="form__label" htmlFor="telefono_movil">
+                                <span>Número movil:</span>
+                                <input className="form__input" type="number" name="telefono_movil" /> 
+                            </label>
+                        </div>
+
+
+                        <h5>Username:</h5>
+                        <label className="form__label" htmlFor="username">
+                            <span>Username:</span>
+                            <input className="form__input" type="number" name="username" /> 
+                        </label>
+
                         <div className="form__footer">
                             <button className="secondary__button">Guardar parcial</button>
                             <button className="primary__button">Guardar y continuar</button>
                         </div>
+                        
                     </form>
                     </section>
                 </section>

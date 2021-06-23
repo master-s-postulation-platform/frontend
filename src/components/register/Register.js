@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import '../../styles/global.scss';
 import Input1 from '../input/Input1';
+import Modal from '../Modal';
 import { useHistory } from 'react-router-dom';
 
 const Register = () => {
@@ -9,6 +10,13 @@ const Register = () => {
   const [password, cambioPassword] = useState('');
   const [password2, cambioPassword2] = useState('');
   const [result, cambioResult] = useState(null);
+
+  const [active, setActive] = useState(false)
+
+  const toggle = () => {
+    setActive(!active)
+  }
+
 
   let history = useHistory();
 
@@ -50,6 +58,10 @@ const Register = () => {
           history.push('/login');
         } else {
           console.log('Error')
+          setActive(true)
+          /* {<Modal active={active} toggle={toggle}>
+            El correo ya existe
+          </Modal>} */
           /* var error = "error"; */
         }
       })
@@ -82,6 +94,9 @@ const Register = () => {
 
     return(
       <>
+        <Modal active={active} toggle={toggle}>
+            El correo ya existe
+          </Modal>
         <div className="register">
           <h3 className="register__title">
             Registro
@@ -133,7 +148,7 @@ const Register = () => {
                   tipo="password"
                   placeholder="Ingrese contraseña"
                   name="password2"
-                  leyendaerror="Debe ingresar un correo electrónico"
+                  leyendaerror="La contraseña debe ser igual"
                   expresionRegular=""
                   funcion={validarPassword2()}
                   onChange={validarPassword2}

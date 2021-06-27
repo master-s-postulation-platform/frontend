@@ -15,75 +15,15 @@ const Login = (props) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    let payload = {email, password};
-
+    let payload = {email, password}
     try {
-      let response = await loginUser(dispatch, payload)
-      if (!response.user) {
-        return;
-      } else {
-        props.history.push('/dashboard')
-      }
-    } catch (error) {
+      let response = await loginUser(dispatch, payload);
+    } catch(error) {
       console.log(error)
     }
   }
 
-  // const handleClick = (e) => {
-  //   e.preventDefault();
-    
-  //   if (!validateFields) {
-  //     console.log('Escriba su usuario y contraseña')
-  //   } else {
-  //     login()
-  //   }
-  // }
 
-  // const validateFields = () => {
-    
-  //   if (email === "" || password === "") {
-  //     console.log('Escriba su usuario y contraselña')
-  //     return false;
-  //   } else {
-      
-  //     return true;
-  //   }
-  // }
-
-  // const login = () => {
-
-  //   let request = {
-  //     "email": email,
-  //     "password": password,
-  //   }
-
-  //   fetch('https://api.hardmakers.com/api/v1/token/login',{
-  //       method: 'POST', 
-  //       body: JSON.stringify(request), 
-  //       headers:{
-  //         'Content-Type': 'application/json'
-  //       }
-  //     })
-  //     // .then(response => {
-  //     //   console.log(response.status)
-  //     //   if (response.status === 200) {
-
-  //     //     return response
-  //     //   } else {
-  //     //     console.log('Error')
-  //     //     /* var error = "error"; */
-  //     //   }
-  //     // })
-  //     // .then(data => {
-  //     //   console.log(data.json())
-  //     // })
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       console.log(JSON.stringify(data))
-  //       alert(JSON.stringify(data))
-  //       // history.push('/profile');
-  //     })
-  // }
 
   return (
     <>

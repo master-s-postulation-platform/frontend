@@ -3,69 +3,87 @@ import '../../styles/global.scss';
 import Input1 from '../input/Input1';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
+import { loginUser, useAuthState, useAuthDispatch } from '../../Context';
 
-const Login = () => {
+const Login = (props) => {
+
+  const dispatch = useAuthDispatch();
+  const {loading, errorMessage} = useAuthState();
   
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  let history = useHistory();
-
-  const handleClick = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    
-    if (!validateFields) {
-      console.log('Escriba su usuario y contraseña')
-    } else {
-      login()
+    let payload = {email, password};
+
+    try {
+      let response = await loginUser(dispatch, payload)
+      if (!response.user) {
+        return;
+      } else {
+        props.history.push('/dashboard')
+      }
+    } catch (error) {
+      console.log(error)
     }
   }
 
-  const validateFields = () => {
+  // const handleClick = (e) => {
+  //   e.preventDefault();
     
-    if (email === "" || password === "") {
-      console.log('Escriba su usuario y contraselña')
-      return false;
-    } else {
+  //   if (!validateFields) {
+  //     console.log('Escriba su usuario y contraseña')
+  //   } else {
+  //     login()
+  //   }
+  // }
+
+  // const validateFields = () => {
+    
+  //   if (email === "" || password === "") {
+  //     console.log('Escriba su usuario y contraselña')
+  //     return false;
+  //   } else {
       
-      return true;
-    }
-  }
+  //     return true;
+  //   }
+  // }
 
-  const login = () => {
+  // const login = () => {
 
-    let request = {
-      "email": email,
-      "password": password,
-    }
+  //   let request = {
+  //     "email": email,
+  //     "password": password,
+  //   }
 
-    fetch('https://api.hardmakers.com/api/v1/token/login',{
-        method: 'POST', 
-        body: JSON.stringify(request), 
-        headers:{
-          'Content-Type': 'application/json'
-        }
-      })
-      // .then(response => {
-      //   console.log(response.status)
-      //   if (response.status === 200) {
+  //   fetch('https://api.hardmakers.com/api/v1/token/login',{
+  //       method: 'POST', 
+  //       body: JSON.stringify(request), 
+  //       headers:{
+  //         'Content-Type': 'application/json'
+  //       }
+  //     })
+  //     // .then(response => {
+  //     //   console.log(response.status)
+  //     //   if (response.status === 200) {
 
-      //     return response
-      //   } else {
-      //     console.log('Error')
-      //     /* var error = "error"; */
-      //   }
-      // })
-      // .then(data => {
-      //   console.log(data.json())
-      // })
-      .then(response => response.json())
-      .then(data => {
-        console.log(JSON.stringify(data))
-        alert(JSON.stringify(data))
-        // history.push('/profile');
-      })
-  }
+  //     //     return response
+  //     //   } else {
+  //     //     console.log('Error')
+  //     //     /* var error = "error"; */
+  //     //   }
+  //     // })
+  //     // .then(data => {
+  //     //   console.log(data.json())
+  //     // })
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       console.log(JSON.stringify(data))
+  //       alert(JSON.stringify(data))
+  //       // history.push('/profile');
+  //     })
+  // }
 
   return (
     <>
@@ -95,7 +113,7 @@ const Login = () => {
               <br/>
               <p className="login__form--text">¿Olvidó su contraseña?</p>
               <br/>
-              <button className="login__form--btn" type="submit" onClick={handleClick}>INICIO DE SESIÓN</button>
+              <button className="login__form--btn" type="submit" onClick={handleLogin}>INICIO DE SESIÓN</button>
               <br/>
               <p className="login__form--text">¿No tiene una cuenta?</p>
               <br/>

@@ -5,10 +5,19 @@ import House from '../icons/House';
 import '../../styles/global.scss';
 import { Link } from 'react-router-dom';
 
-class Landing extends React.Component {
-  render() {
-    return(
-      <>
+// class Landing extends React.Component {
+//   render() {
+//     return(
+      
+//     )
+//   }
+// }
+
+// export default Landing;
+
+const Landing = (props) => {
+  return (
+    <>
         <div className="landing">
           <p className="landing__title">
             Para postularte en Talent Jobs <br/>
@@ -38,8 +47,7 @@ class Landing extends React.Component {
           </Link>
         </div>
       </>
-    )
-  }
+  )
 }
 
-export default Landing;
+export default Landing

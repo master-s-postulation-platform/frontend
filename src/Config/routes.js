@@ -10,6 +10,7 @@ import ProfesionalExperience from "../pages/profile/ProfesionalExperience";
 import Education from "../pages/profile/Education";
 import Idioms from "../pages/profile/Idioms";
 import PageNotFound from "../pages/PageNotFound/PageNotFound";
+import Dashboard from "../pages/Dashboard/Dashboard.jsx";
 
 const routes = [
     {
@@ -45,6 +46,11 @@ const routes = [
     {
         path: '/idioms',
         component: Idioms,
+        isPrivate: true
+    },
+    {
+        path: '/dashboard',
+        component: Dashboard,
         isPrivate: true
     },
     {

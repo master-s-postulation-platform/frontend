@@ -1,4 +1,4 @@
-let user = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')).user : "";
+let user = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')).userDetails : "";
 let token = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')).auth_token : "";
 
 export const initialState = {
@@ -26,19 +26,24 @@ export const AuthReducer = (initialState, action) => {
                 loading: false
             }
             break;
+
         case 'LOGOUT':
+            console.log('logout')
             return {
                 ...initialState,
-                user: "",
+                userDetails: "",
                 token: ""
             }
             break;
+
         case 'LOGIN_ERROR':
             return {
                 ...initialState,
                 loading: false,
                 errorMessage: action.error
             }
+            break;
+
         default:
             throw new Error(`Unhandled action type: ${action.type}`);
             break;

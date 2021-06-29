@@ -1,10 +1,10 @@
 import React from 'react';
 import '../../styles/global.scss';
 
-const ButtonPrimary = ({value}) => {
+const ButtonPrimary = ({value,action}) => {
     return(
       <>
-        <button className="button-name">
+        <button className="button-name" onClick={action}>
           {value}
         </button>
       </>

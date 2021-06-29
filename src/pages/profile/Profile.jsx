@@ -1,6 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useAuthState } from '../../Context'
 
 const Profile = () => {
+
+    const [profileData, setProfileData] = useState([]);
+    const [name, setName] = useState();
+    const userDetails = useAuthState();
+
+    console.log(userDetails)
+    
+    const getUserProfile = () => {
+        useEffect(()=> {
+            fetch('https://api.hardmakers.com/api/v1/profile/page/1',{
+                method: 'GET',
+                headers: {'Authorization': `Token ${userDetails.token}`}
+            })
+            .then(response => response.json())
+            .then( data => {
+                cionsole.log(data)
+            })
+        },[])
+    }
+
+    getUserProfile()
+
+    
+
+
     return (
         <section className="section">
             <section className="section__background">
@@ -17,9 +43,9 @@ const Profile = () => {
                         </h4>
 
                         <h5>Información personal:</h5>
-                        <label className="form__label" htmlFor="apellidos">
+                        <label className="form__label" htmlFor="lastname">
                             <span>Apellidos:</span>
-                            <input className="form__input" type="text" placeholder="Apellidos" name="apellidos"/>
+                            <input className="form__input" type="text" placeholder="Apellidos" name="lastname" />
                         </label>
                         <label className="form__label" htmlFor="nombre">
                             <span>Nombre:</span>

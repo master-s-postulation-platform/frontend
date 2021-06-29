@@ -18,6 +18,12 @@ const Login = (props) => {
     let payload = {email, password}
     try {
       let response = await loginUser(dispatch, payload);
+      
+      if (!response.auth_token) {
+        return;
+      } else {
+        props.history.push('/profile');
+      }
     } catch(error) {
       console.log(error)
     }

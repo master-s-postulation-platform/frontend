@@ -4,10 +4,8 @@ import { useAuthState } from '../../Context'
 const Profile = () => {
 
     const [profileData, setProfileData] = useState([]);
-    const [name, setName] = useState();
+    const [first_name, setName] = useState();
     const userDetails = useAuthState();
-
-    console.log(userDetails)
     
     const getUserProfile = () => {
         useEffect(()=> {
@@ -17,13 +15,36 @@ const Profile = () => {
             })
             .then(response => response.json())
             .then( data => {
-                cionsole.log(data)
+                console.log(data.profile.includes('first_name'))
+
+                if (data.profile.includes('first_name') === false) {
+                    setName("");
+                }
             })
         },[])
     }
 
     getUserProfile()
 
+
+    const submitForm = (e) => {
+        e.preventDefault();
+        console.log('submit click')
+        let bodyData = {
+            'firstName': first_name
+        }
+
+        console.log(bodyData);
+        fetch('https://api.hardmakers.com/api/v1/profile/page/1',{
+            method: 'POST',
+            body: JSON.stringify(bodyData),
+            headers: {'Authorization': `Token ${userDetails.token}`}
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+        })
+    }
     
 
 
@@ -49,7 +70,7 @@ const Profile = () => {
                         </label>
                         <label className="form__label" htmlFor="nombre">
                             <span>Nombre:</span>
-                            <input className="form__input" type="text" placeholder="Nombre" name="nombre"/> 
+                            <input className="form__input" type="text" placeholder="Nombre" name="first_name" value={first_name} onChange={ e => (setName(e.target.value))}/> 
                         </label>
                         <div className="form__column--2">
                             <label className="form__label" htmlFor="sexo">
@@ -112,7 +133,7 @@ const Profile = () => {
                         </label>
 
                         <div className="form__footer">
-                            <button className="secondary__button">Guardar parcial</button>
+                            <button className="secondary__button" onClick={submitForm}>Guardar parcial</button>
                             <button className="primary__button">Guardar y continuar</button>
                         </div>
                         

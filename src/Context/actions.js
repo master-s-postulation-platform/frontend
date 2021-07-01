@@ -14,9 +14,6 @@ export async function loginUser(dispatch, loginPayload) {
         let response = await fetch(`${API_URL}/token/login/`,requestOptions);
         let data = await response.json();
 
-
-        // console.log(data);
-
         if (data.auth_token) {
             dispatch({type: 'REQUEST_SUCCESS', payload: data});
             localStorage.setItem('currentUser', JSON.stringify(data));

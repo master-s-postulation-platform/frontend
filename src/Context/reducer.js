@@ -1,5 +1,5 @@
-let user = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')).userDetails : "";
-let token = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')).auth_token : "";
+let user = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')) : "";
+let token = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')).login.auth_token : "";
 
 export const initialState = {
     userDetails: "" || user,
@@ -28,7 +28,6 @@ export const AuthReducer = (initialState, action) => {
             break;
         
         case 'REGISTER_LOGIN':
-            console.log(action.payload)
             return {
                 ...initialState,
                 userDetails: action.payload.data,

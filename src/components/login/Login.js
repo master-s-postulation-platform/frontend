@@ -22,7 +22,7 @@ const Login = (props) => {
       if (!response.auth_token) {
         return;
       } else {
-        props.history.push('/profile');
+        props.history.push('/dashboard');
       }
     } catch(error) {
       console.log(error)

@@ -3,8 +3,12 @@ import '../../styles/global.scss';
 import Input1 from '../input/Input1';
 import Modal from '../Modal';
 import { useHistory } from 'react-router-dom';
+import { loginRegister, useAuthState, useAuthDispatch } from '../../Context';
 
 const Register = () => {
+
+  const dispatch = useAuthDispatch();
+  const {loading, errorMessage} = useAuthState();
 
   const [email, cambioEmail] = useState('');
   const [password, cambioPassword] = useState('');
@@ -24,11 +28,11 @@ const Register = () => {
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
     password:  /^[a-zA-Z0-9!@#$%^&*]{8,16}$/
   }
+
   /* Esta es la funcion para comparar el password con el otro revisar si son iguales */
   const validarPassword2 = () => {
     if (password.length > 0){
       if(password !== password2){
-        console.log('Las contraseñas no son iguales')
         return false
       } else {
         console.log('Las contraseñas son iguales')
@@ -39,44 +43,29 @@ const Register = () => {
 
   const sendRegister = () => {
     
-      let request = {
+      let requestRegister = {
         "email": email,
         "password": password,
         "re_password": password2
       }  
 
       fetch('https://api.hardmakers.com/api/v1/users/',{
-        method: 'POST', // or 'PUT'
-        body: JSON.stringify(request), // data can be `string` or {object}!
+        method: 'POST',
+        body: JSON.stringify(requestRegister),
         headers:{
           'Content-Type': 'application/json'
         }
       })
-      .then(response => {
-        console.log(response.status)
-        if (response.status === 201) {
-          history.push('/login');
+      .then(response => response.json())
+      .then(data => {
+        if (data.error === false) {
+          loginRegister(dispatch,data)
+          history.push('/dashboard');
         } else {
-          console.log('Error')
+          console.log(data)
           setActive(true)
-          /* {<Modal active={active} toggle={toggle}>
-            El correo ya existe
-          </Modal>} */
-          /* var error = "error"; */
         }
       })
-      .then(data => {
-        console.log(data)
-      })
-      // .then(()=>{
-      //   let test = {
-      //       "email": "jcpablo100@gmail.com"
-      //   }
-
-      //   if (test === email) {
-      //     console.log('correo creado con éxito')
-      //   }
-      // })
 
   
   }

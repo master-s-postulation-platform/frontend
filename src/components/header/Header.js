@@ -13,8 +13,6 @@ const Header = (props) => {
   const dispath = useAuthDispatch();
   const userDetails = useAuthState();
 
-  console.log(userDetails.token)
-
   const handleLogout = () => {
     logout(dispath);
     props.history.push('/login');

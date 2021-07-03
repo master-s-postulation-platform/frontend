@@ -3,10 +3,11 @@ import { Redirect, Route } from 'react-router-dom';
 
 import { useAuthState } from '../Context';
 
+
 const AppRoutes = ({component: Component, path, isPrivate, ...rest}) => {
     const userDetails = useAuthState();
     return (
-        <Route 
+        <Route
             path={path}
             render = { props =>
                 isPrivate && !Boolean(userDetails.token) ? (

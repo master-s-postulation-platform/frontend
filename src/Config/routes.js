@@ -1,7 +1,3 @@
-// import Login from '../Pages/Login/index.jsx'
-// import Dashboard from '../Pages/Dashboard/Dashboard.jsx'
-// import PageNotFound from '../Pages/PageNotFound/PageNotFound.jsx'
-
 import Landing from "../components/landing/Landing";
 import Login from "../components/login/Login";
 import Register from "../components/register/Register";
@@ -30,33 +26,8 @@ const routes = [
     isPrivate: false,
   },
   {
-    path: "/profile",
-    component: Profile,
-    isPrivate: true,
-  },
-  {
-    path: "/profesional",
-    component: ProfesionalExperience,
-    isPrivate: true,
-  },
-  {
-    path: "/education",
-    component: Education,
-    isPrivate: true,
-  },
-  {
-    path: "/idioms",
-    component: Idioms,
-    isPrivate: true,
-  },
-  {
     path: "/dashboard",
     component: Dashboard,
-    isPrivate: true,
-  },
-  {
-    path: "/vistaadmin",
-    component: VistaAdmin,
     isPrivate: true,
   },
   {

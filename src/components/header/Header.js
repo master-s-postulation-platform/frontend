@@ -3,42 +3,34 @@ import Logo from '../icons/Logo';
 import Title from '../icons/Title';
 import ButtonPrimary from '../buttons/ButtonPrimary';
 import '../../styles/global.scss';
-import { useAuthDispatch, logout, useAuthState } from '../../Context'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, NavLink } from 'react-router-dom';
 
 import React from 'react'
 
 const Header = (props) => {
-  
-  const dispath = useAuthDispatch();
-  const userDetails = useAuthState();
+  const ubicacion = useLocation();
 
-  const handleLogout = () => {
-    logout(dispath);
-    props.history.push('/login');
-  }
-
-  const handleLogin = () => {
-    props.history.push('/login');
-  }
   return (
     <>
-       <div className="header">
-         <div className="logo-name">
-           <Link to='/'>
-             <Logo />
-           </Link>
-           <Title/>
-         </div>
-         <Link to="/logim">
-           <ButtonPrimary
-            value={!userDetails.token ? 'Iniciar sesión' : 'Cerrar sesión'}
-            action={!userDetails.token ? handleLogin : handleLogout}
-           />
+      <div className={ubicacion.pathname === "/login" ? 'header__login' : 'header__main ' }>
+        <div className={ubicacion.pathname === "/login" ? 'logo-login' : 'logo-name ' }>
+          <Link to='/'>
+            <Logo />
           </Link>
-         
-       </div>
-       </>
+          <Title/>
+        </div>
+        {
+          ubicacion.pathname === "/login" ? ' ' :
+          <>
+            <NavLink to='/login'>
+              <ButtonPrimary
+                value='Iniciar sesión'
+              />
+            </NavLink>
+          </>
+        }
+      </div>
+    </>
   )
 }
 

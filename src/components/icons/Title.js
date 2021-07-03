@@ -1,19 +1,17 @@
 import React from 'react';
 import '../../styles/global.scss';
 
-class Title extends React.Component {
-  render() {
+const Title = ({color, size}) => {
     return(
       <div className="title">
-        <h1 className="title__one">
+        <h1 className={`title__one ${color}`}>
           Talent
         </h1>
-        <h1 className="title__two">
+        <h1 className={`title__two ${color}`}>
           Jobs
         </h1>
       </div>
     )
-  }
 }
 
 export default Title;

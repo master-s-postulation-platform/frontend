@@ -52,7 +52,7 @@ const routes = [
   {
     path: "/dashboard",
     component: Dashboard,
-    isPrivate: true,
+    isPrivate: false,
   },
   {
     path: "/vistaadmin",

@@ -6,6 +6,8 @@ import puntaje from "./images/icono-categoria-puntaje.svg";
 import reportes from "./images/Icono-reportes.svg";
 import puntajes from "./images/img-puntajes.jpg";
 import reporte from "./images/img-reportes.jpg";
+import logo from "./images/Logo-TJ-Admin.svg";
+import iconUser from "./images/Icono-Usuario.svg";
 
 const Dashboard = () => {
   return (
@@ -13,29 +15,29 @@ const Dashboard = () => {
       <div>
         <div className="grid">
           <header className="header">
-            <div className="header__search">
-              <input className="header__input" placeholder="Search..." />
-            </div>
-            <div className="header__avatar">
-              <div className="dropdown">
-                <ul className="">
-                  <li className="">
-                    <span className="">Mi perfil</span>
-                  </li>
-                  <li className="">
-                    <span className="">Cerrar sesió</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <div></div>
+            <nav className="menuCSS3">
+              <ul>
+                <li>
+                  <a href="#">
+                    <img src={iconUser} alt="Icono Usuario" />
+                  </a>
+                  <ul>
+                    <li>
+                      <a href="#">Perfil</a>
+                    </li>
+                    <li>
+                      <a href="#">Cerrar</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
           </header>
           <aside className="sidenav">
             <div className="">
               <div className="logo">
-                <img
-                  src="./images/logo-talent-job-gris.svg"
-                  alt="Logo Talent Jobs"
-                />
+                <img src={logo} alt="Logo Talent Jobs" />
               </div>
             </div>
             <div className="sidenav__profile">
@@ -130,7 +132,7 @@ const Dashboard = () => {
                     ¿Cómo estás hoy?
                   </div>
                 </div>
-                <div>
+                <div className="download__files">
                   <a href="" download>
                     <span>Download</span>
                     <span>PDF</span>

@@ -8,20 +8,36 @@ export async function loginUser(dispatch, loginPayload) {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(loginPayload)
     }
-
     try {
         dispatch({type: 'REQUEST_LOGIN'});
-        let response = await fetch(`${API_URL}/token/login/`,requestOptions);
+        let response = await fetch(`${API_URL}/token/login`,requestOptions);
         let data = await response.json();
 
-        if (data.auth_token) {
-            dispatch({type: 'REQUEST_SUCCESS', payload: data});
-            localStorage.setItem('currentUser', JSON.stringify(data));
-            return data;
+        
+        if (data.error === false) {
+            
+            let dataReconstruction;
+            
+            dataReconstruction = {
+                "error": data.error,
+                "message": data.message,
+                "data": {
+                    "signup": {
+                        "email": loginPayload.email,
+                        "login": {
+                            "auth_token": data.data.auth_token
+                        }
+                    }
+                }
+            }
+
+            dispatch({type: 'REQUEST_SUCCESS', payload: dataReconstruction});
+            localStorage.setItem('currentUser', JSON.stringify(dataReconstruction.data));
+            return dataReconstruction;
         }
 
-        dispatch({ type: 'LOGIN_ERROR', error: data.errors[0] })
-        return
+        dispatch({ type: 'LOGIN_ERROR', error: data.message })
+        return data;
 
     } catch (error) {
         dispatch({type: 'LOGIN_ERROR', error: error})
@@ -44,3 +60,23 @@ export async function loginRegister(dispatch, registerPayload) {
     localStorage.setItem('currentUser', JSON.stringify(registerPayload.data));
 }
 
+// const login = {
+//     "error":false,
+//     "message":null,
+//     "data":{
+//         "auth_token":"511b9cd53752ca8815fa972314d880b3bdd1e232"
+//     }
+// }
+
+// const register = {
+//     "error":false,
+//     "message":null,
+//     "data":{
+//         "signup":
+//         {
+//             "email":"prueba021@gmail.com"},
+//             "login": {
+//                 "auth_token":"511b9cd53752ca8815fa972314d880b3bdd1e232"
+//             }
+//         }
+//     }

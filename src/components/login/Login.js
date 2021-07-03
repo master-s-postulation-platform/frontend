@@ -10,6 +10,8 @@ const Login = (props) => {
   const location = useLocation();
   console.log(location.pathname);
 
+  const history = useHistory()
+
   const dispatch = useAuthDispatch();
   const {loading, errorMessage} = useAuthState();
   
@@ -18,14 +20,23 @@ const Login = (props) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    
     let payload = {email, password}
+    
     try {
       let response = await loginUser(dispatch, payload);
       
-      if (!response.auth_token) {
+      console.log(response)
+      
+      if (response.error === true) {
+        alert(response.message)
         return;
       } else {
-        props.history.push('/dashboard');
+        // props.history.push('/dashboard');
+        console.log('Test');
+        // history.push('/dashboard');
+        history.push('/dashboard');
+
       }
     } catch(error) {
       console.log(error)

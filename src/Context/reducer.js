@@ -1,5 +1,5 @@
 let user = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')) : "";
-let token = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')).login.auth_token : "";
+let token = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')).signup.login.auth_token : "";
 
 /* .login.auth_token : ""; */
 

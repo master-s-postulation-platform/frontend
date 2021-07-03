@@ -1,39 +1,138 @@
 import React from "react";
 import "./dashboard.scss";
-import puntajes from "./images/img-puntajes.jpg";
-import reporte from "./images/img-reportes.jpg";
-import Avatar from '../../components/pruebaDashboard/menuleft/Avatar';
-import AvatarTitle from '../../components/pruebaDashboard/menuleft/AvatarTitle';
-import Head from "../../components/pruebaDashboard/menuleft/Head";
-import NavProfile from "../../components/pruebaDashboard/menuleft/NavProfile";
-import NavUser from "../../components/pruebaDashboard/menuleft/NavUser";
-import { useAuthState } from '../../Context';
+import puntaje from "./images/img-puntajes.jpg";
+import reportes from "./images/img-reportes.jpg";
+import logo from "./images/Logo-TJ-Admin.svg";
+import iconUser from "./images/Icono-Usuario.svg";
 
-import { BrowserRouter as Router, Switch, Route,  Link, useLocation, NavLink } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useLocation,
+  NavLink,
+} from "react-router-dom";
 
-import Profile from '../profile/Profile';
-import AppRoutes from '../../components/AppRoutes'
+import Profile from "../profile/Profile";
+import AppRoutes from "../../components/AppRoutes";
 
-
-const Dashboard = ({user}) => {
+const Dashboard = ({ user }) => {
   return (
     <>
       <div>
         <div className="grid">
+          <header className="header">
+            <div></div>
+            <nav className="menuCSS3">
+              <ul>
+                <li>
+                  <a href="#">
+                    <img src={iconUser} alt="Icono Usuario" />
+                  </a>
+                  <ul>
+                    <li>
+                      <a href="#">Perfil</a>
+                    </li>
+                    <li>
+                      <a href="#">Cerrar</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </header>
           <aside className="sidenav">
-            <Head />
-            <NavProfile user="Username"/>
-            <NavUser/>
+            <div className="">
+              <div className="logo">
+                <img src={logo} alt="Logo Talent Jobs" />
+              </div>
+            </div>
+            <div className="sidenav__profile">
+              <div className="sidenav__profile-avatar"></div>
+              <div className="sidenav__profile-title">Darlene R</div>
+            </div>
+            <div className="">
+              <ul className="navList">
+                <li className="navList__heading">
+                  Reportes
+                  <img src={reportes} alt="Icono categoria puntajes" />
+                </li>
+                <li>
+                  <div className="navList__subheading">
+                    <span className="navList__subheading-icon"></span>
+                    <span className="navList__subheading-title">
+                      Usuarios / Postulantes
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <div className="navList__subheading">
+                    <span className="navList__subheading-icon"> </span>
+                    <span className="navList__subheading-title">
+                      Administradores
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <div className="navList__subheading">
+                    <span className="navList__subheading-icon"></span>
+                    <span className="navList__subheading-title">
+                      Ordenar por puntaje
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <div className="navList__subheading">
+                    <span className="navList__subheading-icon"></span>
+                    <span className="navList__subheading-title">
+                      Usuarios registrados
+                    </span>
+                  </div>
+                </li>
+
+                <li className="navList__heading">
+                  Categorias puntajes
+                  <img src={puntaje} alt="" />
+                </li>
+                <li>
+                  <div className="navList__subheading">
+                    <span className="navList__subheading-icon"></span>
+                    <span className="navList__subheading-title">
+                      Situación laboral
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <div className="navList__subheading">
+                    <span className="navList__subheading-icon"></span>
+                    <span className="navList__subheading-title">
+                      Experiencia profesional
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <div className="navList__subheading">
+                    <span className="navList__subheading-icon"></span>
+                    <span className="navList__subheading-title">
+                      Escolaridad
+                    </span>
+                  </div>
+                </li>
+                <li>
+                  <div className="navList__subheading">
+                    <span className="navList__subheading-icon"></span>
+                    <span className="navList__subheading-title">Idioma</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </aside>
           <Router>
             <Switch>
-              <AppRoutes exact path='/dashboard/profile' component={Profile}/>
+              <AppRoutes exact path="/dashboard/profile" component={Profile} />
             </Switch>
           </Router>
-
-
-
-      
         </div>
       </div>
     </>
@@ -42,9 +141,8 @@ const Dashboard = ({user}) => {
 
 export default Dashboard;
 
-
-
-{/* <div className="main">
+{
+  /* <div className="main">
 <div className="main-header">
   <div className="main-header__intro-wrapper">
     <div className="main-header__welcome">
@@ -100,4 +198,5 @@ export default Dashboard;
     </div>
   </div>
 </div>
-</div> */}
+</div> */
+}

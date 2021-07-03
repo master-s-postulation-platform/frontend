@@ -6,6 +6,8 @@ const Profile = () => {
     const [profileData, setProfileData] = useState([]);
     const [first_name, setName] = useState();
     const userDetails = useAuthState();
+
+    console.log(userDetails.userDetails.signup.email);
     
     const getUserProfile = () => {
         useEffect(()=> {

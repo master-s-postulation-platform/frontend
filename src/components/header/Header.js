@@ -30,10 +30,9 @@ const Header = (props) => {
            </Link>
            <Title/>
          </div>
-         <Link to="/logim">
+         <Link to="/login">
            <ButtonPrimary
-            value={!userDetails.token ? 'Iniciar sesión' : 'Cerrar sesión'}
-            action={!userDetails.token ? handleLogin : handleLogout}
+            value="Iniciar sesión"
            />
           </Link>
          

@@ -36,12 +36,12 @@ function App() {
             component={Register}
             isPrivate={false}
           />
-          <AppRoutes path="/dashboard" component={Dashboard} isPrivate={true} />
+          <AppRoutes path="/dashboard" component={Dashboard} isPrivate={false} />
           <AppRoutes
             exact
             path="/*"
             component={PageNotFound}
-            isPrivate={true}
+            isPrivate={false}
           />
         </Switch>
         <RouterFooter />

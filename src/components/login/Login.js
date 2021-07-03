@@ -2,7 +2,7 @@ import React, { Component, useState, useEffect } from 'react';
 import '../../styles/global.scss';
 import Input1 from '../input/Input1';
 import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import { loginUser, useAuthState, useAuthDispatch } from '../../Context';
 
 

@@ -9,7 +9,7 @@
 @import "./login";
 @import "./register";
 @import "./profile.scss";
-@import "./modal";
+@import "../components/modals/modal.scss";
 /* @import "../pages/Dashboard/dashboard.scss"; */
 
 * {
@@ -19,4 +19,5 @@
 body {
   background-color: $white-color;
   font-family: $primary-font;
+  overflow-x: hidden;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import Title from '../../icons/Title';
 import logo from '../../../images/Gris.png';
 
-function Head() {
+function Head({size, font}) {
   return(
     <>
       <div className="logo">
@@ -10,7 +10,7 @@ function Head() {
           src={logo}
           alt="Logo Talent Jobs"
         />
-        <Title color='gray'/>
+        <Title color="gray"/>
       </div>
     </>
   )

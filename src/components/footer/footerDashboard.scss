@@ -1,0 +1,39 @@
+@import "../../styles/variables";
+
+.footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  color: $color-button-gray-text;
+  background-color: $color-button-green;
+  height: 50px;
+  width: 100%;
+
+  &__copyright {
+    color: $color-button-black;
+  }
+
+  &__signature {
+    color: $color-button-black;
+    cursor: pointer;
+    font-weight: bold;
+    padding-left: 5px;
+  }
+  &__right {
+    display: flex;
+  }
+}
+
+.fuente {
+  color: red;
+  font-size: 16px;
+}
+
+.carro {
+  width: 10px;
+  height: 10px;
+}

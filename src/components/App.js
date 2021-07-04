@@ -1,12 +1,9 @@
 import React from "react";
 import {
   BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch,
+  Switch
 } from "react-router-dom";
 import AppRoutes from "../components/AppRoutes";
-import routes from "../Config/routes.js";
 import { AuthProvider } from "../Context";
 
 import RouterHeader from "./RouterHeader";
@@ -36,7 +33,7 @@ function App() {
             component={Register}
             isPrivate={false}
           />
-          <AppRoutes path="/dashboard" component={Dashboard} isPrivate={false} />
+          <AppRoutes path="/dashboard" component={RouterDashboard} isPrivate={false} />
           <AppRoutes
             exact
             path="/*"
@@ -52,37 +49,13 @@ function App() {
 
 export default App;
 
-/* function RouterDashboard() {
+function RouterDashboard() {
   return (
     <Switch>
-      <AppRoutes exact path='/dashboard' component={Dashboard} isPrivate={true}/>
-      <AppRoutes path='/dashboard/profile' component={Profile} isPrivate={true}/>
-      <AppRoutes path='/dashboard/profesional' component={ProfesionalExperience} isPrivate={true}/>
-      <AppRoutes path='/dashboard/education' component={Education} isPrivate={true}/>
-      <AppRoutes path='/dashboard/idioms' component={Idioms} isPrivate={true}/>
+      <AppRoutes exact path='/dashboard' component={Profile} isPrivate={false} />
+      <AppRoutes exact path='/dashboard/profesional' component={ProfesionalExperience} isPrivate={false} />
+      <AppRoutes exact path='/dashboard/education' component={Education} isPrivate={false} />
+      <AppRoutes exact path='/dashboard/idioms' component={Idioms} isPrivate={false} />
     </Switch>
   )
-} */
-
-/* 
-<Route exact path='/'>
-<RouterHeader />
-<Landing/>
-<RouterFooter/>
-</Route>
-<Route exact path='/login'>
-<RouterHeader />
-<Login/>
-<RouterFooter/>
-</Route>
-<Route exact path='/register'>
-<RouterHeader />
-<Register/>
-<RouterFooter/>
-</Route>
-
-<AppRoutes exact path='/dashboard' isPrivate={true} component={Dashboard} />
-
-
-<AppRoutes exact path='/*' component={PageNotFound} isPrivate={true}/>
- */
+}

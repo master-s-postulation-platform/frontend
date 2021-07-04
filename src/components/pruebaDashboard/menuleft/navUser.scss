@@ -1,0 +1,51 @@
+@import "../../../styles/variables.scss";
+
+.navUser {
+  width: 235px;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  overflow-y: auto;
+  background-color: $color-button-magenta;
+  color: $color-button-white;
+  transform: translateX(0);
+  overflow-x: hidden;
+
+  &__profile {
+    display: flex;
+    align-items: center;
+    min-height: 90px;
+    background-color: rgba(255, 255, 255, 0.1);
+
+    &-avatar {
+      background-image: url("../../../pages/Dashboard/images/avatar.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      height: 64px;
+      width: 64px;
+      margin: 0 15px;
+    }
+
+    &-title {
+      font-size: 17px;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.title__user1 {
+  text-align: center;
+}
+
+.title__user1 p {
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+}

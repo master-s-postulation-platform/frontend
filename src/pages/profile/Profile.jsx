@@ -9,24 +9,25 @@ const Profile = () => {
 
     console.log(userDetails.userDetails.signup.email);
     
-    const getUserProfile = () => {
-        useEffect(()=> {
-            fetch('https://api.hardmakers.com/api/v1/profile/page/1',{
-                method: 'GET',
-                headers: {'Authorization': `Token ${userDetails.token}`}
-            })
-            .then(response => response.json())
-            .then( data => {
-                console.log(data.profile.includes('first_name'))
+    useEffect(()=> {
+        fetch('https://api.hardmakers.com/api/v1/profile/page/1',{
+            method: 'GET',
+            headers: {'Authorization': `Token ${userDetails.token}`}
+        })
+        .then(response => response.json())
+        .then( data => {
+            console.log(data.profile.includes('first_name'))
 
-                if (data.profile.includes('first_name') === false) {
-                    setName("");
-                }
-            })
-        },[])
-    }
+            if (data.profile.includes('first_name') === false) {
+                setName("");
+            }
+        })
+    },[])
+    
+    // const getUserProfile = () => {
 
-    getUserProfile()
+    //     //mover fuera de la funcion
+    // }
 
 
     const submitForm = (e) => {

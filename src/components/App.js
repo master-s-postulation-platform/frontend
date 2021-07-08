@@ -18,6 +18,7 @@ import Profile from "../pages/profile/Profile";
 import ProfesionalExperience from "../pages/profile/ProfesionalExperience";
 import Education from "../pages/profile/Education";
 import Idioms from "../pages/profile/Idioms";
+import Jobs from "../pages/profile/Jobs";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function RouterDashboard() {
   return (
     <Switch>
       <AppRoutes exact path='/dashboard' component={Profile} isPrivate={false} />
+      <AppRoutes exact path='/dashboard/jobs' component={Jobs} isPrivate={false} />
       <AppRoutes exact path='/dashboard/profesional' component={ProfesionalExperience} isPrivate={false} />
       <AppRoutes exact path='/dashboard/education' component={Education} isPrivate={false} />
       <AppRoutes exact path='/dashboard/idioms' component={Idioms} isPrivate={false} />

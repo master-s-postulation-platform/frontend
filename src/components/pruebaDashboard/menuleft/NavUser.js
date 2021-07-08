@@ -43,6 +43,14 @@ function NavUser() {
             <div className="navList__subheading">
               <span className="navList__subheading-icon"></span>
               <span className="navList__subheading-title">
+                <Link to="/dashboard/jobs">Situación Laboral</Link>
+              </span>
+            </div>
+          </li>
+          <li>
+            <div className="navList__subheading">
+              <span className="navList__subheading-icon"></span>
+              <span className="navList__subheading-title">
                 <Link to="/dashboard/profesional">Experiencia profesional </Link>
               </span>
             </div>

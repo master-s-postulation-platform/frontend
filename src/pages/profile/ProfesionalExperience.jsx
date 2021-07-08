@@ -6,7 +6,7 @@ const ProfesionalExperience = () => {
             <section className="section__background">
                 <section className="section__content">
                     <section className="section__grid">
-                        <h3 className="form__title">Situación laboral</h3>
+                       {/*  <h3 className="form__title">Situación laboral</h3>
 
                         <form className="form">
                             
@@ -29,11 +29,11 @@ const ProfesionalExperience = () => {
 
                             </div>
                             <div className="form__footer">
-                                {/* <button className="secondary__button">Guardar parcial</button> */}
+                                <button className="secondary__button">Guardar parcial</button> 
                                 <button className="primary__button">Guardar y continuar</button>
                             </div>
                             
-                        </form>
+                        </form> */}
                         <h3 className="form__title">Experiencia profesional</h3>
                         <form className="form">
                             <h5>Experiencia profesional:</h5>

@@ -1,46 +1,63 @@
 import React, { useEffect, useState } from 'react'
-import { useAuthState } from '../../Context'
+import { useAuthState } from '../../Context/index.js'
 
 const Profile = () => {
 
-    const [profileData, setProfileData] = useState([]);
-    const [first_name, setName] = useState();
+    // const [profileData, setProfileData] = useState([]);
+    const [first_name, setName] = useState("");
+    const [last_name, setLastName] = useState("");
+    const [username, setUsername] = useState("")
     const userDetails = useAuthState();
-
-    console.log(userDetails.userDetails.signup.email);
     
-    const getUserProfile = () => {
-        useEffect(()=> {
-            fetch('https://api.hardmakers.com/api/v1/profile/page/1',{
-                method: 'GET',
-                headers: {'Authorization': `Token ${userDetails.token}`}
-            })
-            .then(response => response.json())
-            .then( data => {
-                console.log(data.profile.includes('first_name'))
+    useEffect(()=> {
+        fetch('https://api.hardmakers.com/api/v1/profile/information/',{
+            method: 'GET',
+            headers: {'Authorization': `Token ${userDetails.token}`}
+        })
+        .then(response => response.json())
+        .then( data => {
+            console.log('Test education')
+            console.log(data)
 
-                if (data.profile.includes('first_name') === false) {
-                    setName("");
-                }
-            })
-        },[])
-    }
+            setName(data.data.profile[0].user.first_name)
+            setLastName(data.data.profile[0].user.last_name)
 
-    getUserProfile()
+            if (data.data.profile[0].user.username === "") {
+                
+            } else {
+                setUsername(data.data.profile[0].user.username)
+            }
 
+        })
+
+    },[])
 
     const submitForm = (e) => {
         e.preventDefault();
-        console.log('submit click')
-        let bodyData = {
-            'firstName': first_name
+        
+        let bodyRequest = {
+            'first_name': first_name,
+            "username": username,
+            "last_name": last_name,
+            "birthday": "2021-07-07",
+            "c_status": 1,
+            "country":1,
+            "city":"1",
+            "address_line1":"",
+            "home_phone":"",
+            "mobile_phone":"",
+            "gender":1
         }
 
-        console.log(bodyData);
-        fetch('https://api.hardmakers.com/api/v1/profile/page/1',{
-            method: 'POST',
-            body: JSON.stringify(bodyData),
-            headers: {'Authorization': `Token ${userDetails.token}`}
+        console.log(bodyRequest);
+
+        fetch('https://api.hardmakers.com/api/v1/profile/information/',{
+            method: 'PUT',
+            body: JSON.stringify(bodyRequest),
+            headers: {
+                'Authorization': `Token ${userDetails.token}`,
+                'Content-Type': 'application/json'
+            }
         })
         .then(response => response.json())
         .then(data => {
@@ -68,7 +85,7 @@ const Profile = () => {
                         <h5>Información personal:</h5>
                         <label className="form__label" htmlFor="lastname">
                             <span>Apellidos:</span>
-                            <input className="form__input" type="text" placeholder="Apellidos" name="lastname" />
+                            <input className="form__input" type="text" placeholder="Apellidos" name="last_name" value={last_name} onChange={e => (setLastName(e.target.value))}/>
                         </label>
                         <label className="form__label" htmlFor="nombre">
                             <span>Nombre:</span>
@@ -77,16 +94,16 @@ const Profile = () => {
                         <div className="form__column--2">
                             <label className="form__label" htmlFor="sexo">
                                     <span>Sexo:</span>
-                                <select name="sexo" className="form__select">
+                                <select name="gender" className="form__select">
                                     <option>Selecciona una opción</option>
-                                    <option value="femenino">Femenino</option>
-                                    <option value="masculino">Masculino</option>
+                                    <option value="0">Femenino</option>
+                                    <option value="1">Masculino</option>
                                 </select>
                             </label>
 
-                            <label className="form__label" htmlFor="fecha_nacimiento">
+                            <label className="form__label" htmlFor="birthday">
                                 <span>Fecha de nacimiento:</span>
-                                <input className="form__date" type="date" name="fecha_nacimiento" /> 
+                                <input className="form__date" type="date" name="birthday" pattern="\y{4}-\m{2}-\d{2}"/> 
                             </label>
                         </div>
                         <div className="form__column--2">
@@ -131,7 +148,7 @@ const Profile = () => {
                         <h5>Username:</h5>
                         <label className="form__label" htmlFor="username">
                             <span>Username:</span>
-                            <input className="form__input" type="number" name="username" /> 
+                            <input className="form__input" type="text" name="username" value={username} onChange={e => (setUsername(e.target.value))} /> 
                         </label>
 
                         <div className="form__footer">

@@ -2,13 +2,13 @@ import React from 'react'
 import { useLocation } from 'react-router-dom';
 
 import Header from './header/Header';
-import HeaderDashboard from './pruebaDashboard/headerDashboard/HeaderDashboard';
+import HeaderDashboard from './header/HeaderDashboard';
 import NavUser from './pruebaDashboard/menuleft/NavUser';
 
 const RouterHeader = () => {
-  const dondeEstoy = useLocation();
-  console.log(dondeEstoy);
-  if (dondeEstoy.pathname.includes("/dashboard")) {
+  const location = useLocation();
+  console.log(location);
+  if (location.pathname.includes("/dashboard")) {
     return (
       <>
         <HeaderDashboard/>

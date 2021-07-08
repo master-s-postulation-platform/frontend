@@ -21,7 +21,7 @@ function HeaderDashboard({user}) {
                       <a className="link" href="#">Perfil</a>
                     </li>
                     <li>
-                      <a  className="link" href="#">Cerrar</a>
+                      <a  className="link" href="/login">Cerrar</a>
                     </li>
                   </ul>
                 </li>

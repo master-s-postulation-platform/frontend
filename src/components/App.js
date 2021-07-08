@@ -15,7 +15,7 @@ import RouterFooter from "./RouterFooter";
 import Landing from "../components/landing/Landing";
 import Login from "../components/login/Login";
 import Register from "../components/register/Register";
-import Dashboard from "../pages/Dashboard/Dashboard";
+import Dashboard from "../pages/DashboardAdmin/Dashboard";
 import PageNotFound from "../pages/PageNotFound/PageNotFound";
 import Profile from "../pages/profile/Profile";
 import ProfesionalExperience from "../pages/profile/ProfesionalExperience";
@@ -36,7 +36,11 @@ function App() {
             component={Register}
             isPrivate={false}
           />
-          <AppRoutes path="/dashboard" component={Dashboard} isPrivate={false} />
+          <AppRoutes
+            path="/dashboard"
+            component={Dashboard}
+            isPrivate={false}
+          />
           <AppRoutes
             exact
             path="/*"

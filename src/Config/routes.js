@@ -6,7 +6,7 @@ import ProfesionalExperience from "../pages/profile/ProfesionalExperience";
 import Education from "../pages/profile/Education";
 import Idioms from "../pages/profile/Idioms";
 import PageNotFound from "../pages/PageNotFound/PageNotFound";
-import Dashboard from "../pages/Dashboard/Dashboard.jsx";
+import Dashboard from "../pages/DashboardAdmin/Dashboard";
 import VistaAdmin from "../pages/VistaAdmin/VistaAdmin";
 
 const routes = [

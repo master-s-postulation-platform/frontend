@@ -23,7 +23,7 @@ export async function loginUser(dispatch, loginPayload) {
                 "message": data.message,
                 "data": {
                     "signup": {
-                        "email": loginPayload.email,
+                        "signup": {"email": loginPayload.email},
                         "login": {
                             "auth_token": data.data.auth_token
                         }
@@ -32,7 +32,7 @@ export async function loginUser(dispatch, loginPayload) {
             }
 
             dispatch({type: 'REQUEST_SUCCESS', payload: dataReconstruction});
-            localStorage.setItem('currentUser', JSON.stringify(dataReconstruction.data));
+            localStorage.setItem('currentUser', JSON.stringify(dataReconstruction.data.signup));
             return dataReconstruction;
         }
 

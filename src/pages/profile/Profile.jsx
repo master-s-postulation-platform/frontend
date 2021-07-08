@@ -8,7 +8,7 @@ const Profile = () => {
     const [last_name, setLastName] = useState("");
     const [username, setUsername] = useState("")
     const userDetails = useAuthState();
-    
+
     useEffect(()=> {
         fetch('https://api.hardmakers.com/api/v1/profile/information/',{
             method: 'GET',
@@ -23,7 +23,7 @@ const Profile = () => {
             setLastName(data.data.profile[0].user.last_name)
 
             if (data.data.profile[0].user.username === "") {
-                
+
             } else {
                 setUsername(data.data.profile[0].user.username)
             }

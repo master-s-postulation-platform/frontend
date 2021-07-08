@@ -1,0 +1,107 @@
+@import "../../../pages/DashboardAdmin/dashboard.scss";
+
+.sidenav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  z-index: 110;
+  grid-area: sidenav;
+  height: 100%;
+  overflow-y: auto;
+  background-color: $color-button-magenta;
+  color: $color-button-white;
+  transform: translateX(0);
+
+  &__profile {
+    display: flex;
+    align-items: center;
+    min-height: 90px;
+    background-color: rgba(255, 255, 255, 0.1);
+
+    &-avatar {
+      @include profile-avatar;
+      height: 64px;
+      width: 64px;
+      margin: 0 15px;
+    }
+
+    &-title {
+      font-size: 17px;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+.navList {
+  width: $width-sidenav;
+  padding: 0;
+  margin: 0;
+  background-color: $color-button-magenta;
+  list-style-type: none;
+
+  &__heading {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 16px 3px;
+    color: $color-button-transparent;
+    text-transform: uppercase;
+    font-size: 15px;
+  }
+
+  &__subheading {
+    position: relative;
+    padding: 10px 10px;
+    color: #fff;
+    font-size: 16px;
+    text-transform: capitalize;
+
+    &-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: $color-button-transparent;
+      width: 12px; // Keep spacing consistent
+    }
+
+    &-title {
+      margin: 0 15px;
+    }
+
+    &:after {
+      position: absolute;
+      content: "";
+      height: 6px;
+      width: 6px;
+      top: 17px;
+      right: 25px;
+      border-left: 1px solid $color-button-transparent;
+      border-bottom: 1px solid $color-button-transparent;
+      transform: rotate(225deg);
+      transition: all 0.2s;
+    }
+
+    &:hover {
+      background-color: darken($color-button-magenta, 5%);
+      cursor: pointer;
+    }
+  }
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+  padding-top: 15px;
+}
+
+.logo img {
+  width: 45px;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+}

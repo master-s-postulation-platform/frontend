@@ -1,0 +1,29 @@
+@import "../../../pages/DashboardAdmin/dashboard.scss";
+
+.footer {
+  position: fixed;
+  width: 100%;
+  z-index: 130;
+  grid-area: footer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  color: $color-button-gray-text;
+  background-color: $color-button-green;
+  height: 50px;
+
+  &__copyright {
+    color: $color-button-black;
+  }
+
+  &__signature {
+    color: $color-button-black;
+    cursor: pointer;
+    font-weight: bold;
+  }
+}
+
+.footer__logo {
+  margin-right: 30px;
+}

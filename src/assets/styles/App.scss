@@ -1,0 +1,21 @@
+// Resets
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+p {
+  color: $color-button-black;
+}
+
+// Util classes
+.text-light {
+  font-weight: 300;
+}
+
+.text-bold {
+  font-weight: bold;
+}

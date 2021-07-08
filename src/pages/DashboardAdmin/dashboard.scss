@@ -1,0 +1,76 @@
+// Sass tils
+$color-button-magenta: #4f0f94; // sidenav bg & dark text
+$color-button-magenta-first: #7e0afa;
+$color-button-white: #fff; // card bg
+$color-button-green: #97ca3f;
+$color-button-gray-pdf: #f6f6f6; // content bg
+$color-button-heater-white: #f9fafc; // top nav bg
+$color-button-gray-text: #b5b5b5; // gray text
+$color-button-red-download: #d9186c; //download
+$color-button-black: #000;
+$color-button-transparent: rgba(255, 255, 255, 0.5);
+// grid
+$height-header: 50px;
+$height-footer: 50px;
+$width-sidenav: 240px;
+
+// button
+$height: 30;
+$depth: 5;
+$color-button: #97ca3f;
+$text-color: darken($color-button, 10%);
+$lighten-on-hover: 7%;
+$button-speed: 0.06;
+$timing-function: ease-out;
+
+@mixin profile-avatar {
+  background-image: url("./images/avatar.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+// Resets
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+p {
+  color: $color-button-black;
+}
+
+// Util classes
+.text-light {
+  font-weight: 300;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: $width-sidenav calc(100% - 240px);
+  grid-template-rows: $height-header 1fr $height-footer;
+  grid-template-areas:
+    "sidenav header"
+    "sidenav main"
+    "sidenav footer";
+  height: 95vh;
+  overflow-x: hidden;
+
+  &--noscroll {
+    overflow-y: hidden;
+  }
+}
+
+.dropdown {
+  position: absolute;
+  top: 54px;
+}

@@ -60,7 +60,7 @@ const Register = () => {
       .then(data => {
         if (data.error === false) {
           loginRegister(dispatch, data)
-          history.push('/login');
+          history.push('/dashboard');
         } else {
           console.log(data)
           setActive(true)

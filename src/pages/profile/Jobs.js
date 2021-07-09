@@ -87,8 +87,8 @@ const Jobs = () => {
 
           <label className="form__label" htmlFor="situacion_laboral">
                     <span>Situación Laboral*</span>
-                    <select name="situacion_laboral" className="form__select" onChange={onChangeHandler} value={setJob} >
-                      <option selected="selected">¿Se encuentra trabajando actualmente?</option>
+                    <select name="situacion_laboral" className="form__select" onChange={onChangeHandler} value={Boolean(setJob)} >
+                     {/*  <option selected>¿Se encuentra trabajando actualmente?</option> */}
                       <option value={true}>Si</option>
                       <option value={false}>No</option>
                     </select>
@@ -112,7 +112,7 @@ const Jobs = () => {
                 <span>¿Desea Cambiar de trabajo?</span>
                   <div className="form__label-switch">
                     <p>No</p>
-                    <input className="form__checKbox" type="checkbox" id="switch" name="cambiar_trabajo" value={setChangeOpt} onChange={onHandleCheckbox}/>
+                    <input className="form__checKbox" type="checkbox" id="switch" name="cambiar_trabajo" value={Boolean(setChangeOpt)} onChange={onHandleCheckbox}/>
                     <label htmlFor="switch" className="lbl"></label>
                     <p>Si</p>
                   </div>

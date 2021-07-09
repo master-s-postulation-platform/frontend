@@ -1,5 +1,5 @@
 import React from 'react';
-import reportes from "../../../pages/Dashboard/images/icono-reportes.png";
+import reportes from "../../../pages/Dashboard/images/Icono-reportes.png";
 import puntaje from "../../../pages/Dashboard/images/icono-categoria-puntaje.svg";
 import { Link, useLocation, NavLink } from 'react-router-dom';
 

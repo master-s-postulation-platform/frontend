@@ -8,10 +8,10 @@ const Profile = () => {
     const [first_name, setName] = useState("");
     const [last_name, setLastName] = useState("");
     const [username, setUsername] = useState("")
-    const [gender, setGender] = useState(0)
+    const [gender, setGender] = useState(2)
     const [birthday, setBirthday] = useState("")
-    const [country, setCountry] = useState()
-    const [c_status, setCivil] = useState()
+    const [country, setCountry] = useState("")
+    const [c_status, setCivil] = useState("")
     const [address_line1, setAddress] = useState("")
     const [home_phone, setHomePhone] = useState("")
     const [mobile_phone, setMobilePhone] = useState("")
@@ -28,18 +28,24 @@ const Profile = () => {
             
             console.log(data)
 
-            const {first_name, last_name, username } = data.data.profile[0].user;
+            if (!data.data.profile[0].user) {
+                
+            } else {
 
-            setName(first_name)
-            setLastName(last_name)
-            setUsername(username)
-            setGender(data.data.profile[0].gender)
-            setBirthday(data.data.profile[0].birthday)
-            setCountry(data.data.profile[0].Address.country.id)
-            setCivil(data.data.profile[0].civil_status.id)
-            setAddress(data.data.profile[0].Address.address_line1)
-            setHomePhone(data.data.profile[0].home_phone)
-            setMobilePhone(data.data.profile[0].mobile_phone)
+                const {first_name, last_name, username } = data.data.profile[0].user;
+    
+                setName(first_name)
+                setLastName(last_name)
+                setUsername(username)
+                setGender(data.data.profile[0].gender)
+                setBirthday(data.data.profile[0].birthday)
+                setCountry(data.data.profile[0].Address.country.id)
+                setCivil(data.data.profile[0].civil_status.id)
+                setAddress(data.data.profile[0].Address.address_line1)
+                setHomePhone(data.data.profile[0].home_phone)
+                setMobilePhone(data.data.profile[0].mobile_phone)
+            }
+
 
         })
 
@@ -121,7 +127,7 @@ const Profile = () => {
                             <label className="form__label" htmlFor="c_status">
                                 <span>Estado civil:</span>
                                 <select name="c_status" className="form__select" value={c_status} onChange={e => (setCivil(e.target.value))}>
-                                    <option disabled>Selecciona una opción</option>
+                                    {/* <option disabled>Selecciona una opción</option> */}
                                     <option value={1}>Casado</option>
                                     <option value={2}>Soltero</option>
                                     <option value={3}>Divorciado</option>
@@ -136,7 +142,7 @@ const Profile = () => {
                         <label className="form__label" htmlFor="countries">
                             <span>País de residencia</span>
                             <select name="countries" className="form__select" onChange={ e => (setCountry(e.target.value))} value={country} >
-                                <option disabled>Selecciona una opción</option>
+                                {/* <option disabled>Selecciona una opción</option> */}
                                 <option value={1}>México</option>
                                 <option value={2}>Colombia</option>
                                 <option value={3}>Chile</option>

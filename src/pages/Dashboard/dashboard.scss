@@ -23,6 +23,8 @@ $lighten-on-hover: 7%;
 $button-speed: 0.06;
 $timing-function: ease-out;
 
+@use 'sass:math';
+
 @mixin profile-avatar {
   background-image: url("./images/avatar.jpg");
   background-size: cover;
@@ -503,7 +505,7 @@ p {
     }
     height: $height + px;
     line-height: $height + px;
-    padding: 0 (($height/2) + px);
+    padding: 0 (math.div($height,2) + px);
     display: inline-block;
     width: 180px;
     background: linear-gradient(

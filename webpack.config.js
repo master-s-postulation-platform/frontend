@@ -42,6 +42,10 @@ module.exports = {
           'css-loader',
           'sass-loader'
         ]
+      },
+      {
+        test: /\.(png|jpg|svg)$/,
+        type: "asset/resource",
       }
     ]
   },
@@ -54,12 +58,12 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
   ],
-  optimizations: {
-    minimize: true,
-    minimizer: [
-      new CssMinimizerPlugin(),
-      new TerserPlugin()
+  // optimizations: {
+  //   minimize: true,
+  //   minimizer: [
+  //     new CssMinimizerPlugin(),
+  //     new TerserPlugin()
 
-    ]
-  }
+  //   ]
+  // }
 }

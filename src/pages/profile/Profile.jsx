@@ -3,11 +3,12 @@ import { useAuthState } from '../../Context/index.js'
 
 const Profile = () => {
 
-    // const [profileData, setProfileData] = useState([]);
+    const userDetails = useAuthState();
+    
     const [first_name, setName] = useState("");
     const [last_name, setLastName] = useState("");
     const [username, setUsername] = useState("")
-    const userDetails = useAuthState();
+    const [gender, setGender] = useState(1)
     
     useEffect(()=> {
         fetch('https://api.hardmakers.com/api/v1/profile/information/',{
@@ -21,12 +22,12 @@ const Profile = () => {
 
             setName(data.data.profile[0].user.first_name)
             setLastName(data.data.profile[0].user.last_name)
-
-            if (data.data.profile[0].user.username === "") {
+            setUsername(data.data.profile[0].user.username)
+            setGender(data.data.profile[0].user.gender)
+            // if (data.data.profile[0].user.username === "") {
                 
-            } else {
-                setUsername(data.data.profile[0].user.username)
-            }
+            // } else {
+            // }
 
         })
 
@@ -46,7 +47,7 @@ const Profile = () => {
             "address_line1":"",
             "home_phone":"",
             "mobile_phone":"",
-            "gender":1
+            "gender": gender
         }
 
         console.log(bodyRequest);
@@ -63,6 +64,11 @@ const Profile = () => {
         .then(data => {
             console.log(data)
         })
+    }
+
+    const handleGender = (e) => {
+        setGender(e.target.value)
+        console.log(gender)
     }
     
 
@@ -94,10 +100,10 @@ const Profile = () => {
                         <div className="form__column--2">
                             <label className="form__label" htmlFor="sexo">
                                     <span>Sexo:</span>
-                                <select name="gender" className="form__select">
-                                    <option>Selecciona una opción</option>
-                                    <option value="0">Femenino</option>
-                                    <option value="1">Masculino</option>
+                                <select name="gender" className="form__select" onChange={handleGender}>
+                                    {/* <option>Selecciona una opción</option> */}
+                                    <option value={2}>Femenino</option>
+                                    <option value={1}>Masculino</option>
                                 </select>
                             </label>
 
@@ -107,40 +113,44 @@ const Profile = () => {
                             </label>
                         </div>
                         <div className="form__column--2">
-                            <label className="form__label" htmlFor="estado_civil">
+                            <label className="form__label" htmlFor="c_status">
                                 <span>Estado civil:</span>
-                                <select name="estado_civil" className="form__select">
-                                    <option>Selecciona una opción</option>
-                                    <option value="Soltero">Soltero</option>
-                                    <option value="Casado">Casado</option>
-                                    <option value="union-libre">Unión Libre</option>
+                                <select name="c_status" className="form__select">
+                                    <option disabled>Selecciona una opción</option>
+                                    <option value="1">Soltero</option>
+                                    <option value="2">Casado</option>
+                                    <option value="3">Divorciado</option>
+                                    <option value="4">Separación en proceso</option>
+                                    <option value="5">Viudo/a</option>
+                                    <option value="6">Concubinato</option>
                                 </select>
                             </label>
                         </div>
 
                         <h5>Dirección:</h5>
-                        <label className="form__label" htmlFor="pais_residencia">
+                        <label className="form__label" htmlFor="countries">
                             <span>País de residencia</span>
-                            <select name="pais_residencia" className="form__select">
+                            <select name="countries" className="form__select">
                                 <option disabled>Selecciona una opción</option>
-                                <option value="femenino">Colombia</option>
-                                <option value="masculino">México</option>
+                                <option value="1">México</option>
+                                <option value="2">Colombia</option>
+                                <option value="3">Chile</option>
                             </select>
                         </label>
-                        <label className="form__label" htmlFor="direccion">
+                        <label className="form__label" htmlFor="address_line1">
                             <span>Dirección de residencia:</span>
-                            <input className="form__input" type="text" placeholder="Direccion" name="direccion"/>
+                            <input className="form__input" type="text" placeholder="Direccion" name="address_line1"/>
                         </label>
 
                         <h5>Contacto:</h5>
                         <div className="form__column--2">
-                            <label className="form__label" htmlFor="telefono_fijo">
+                            <label className="form__label" htmlFor="mobile_phone">
                                 <span>Teléfono fijo:</span>
-                                <input className="form__input" type="number" name="telefono_fijo" /> 
+                                <input className="form__input" type="number" name="mobile_phone" /> 
                             </label>
-                            <label className="form__label" htmlFor="telefono_movil">
+                            <label className="form__label" htmlFor="home_phone">
                                 <span>Número movil:</span>
-                                <input className="form__input" type="number" name="telefono_movil" /> 
+                                <input className="form__input" type="number" name="home_phone" /> 
                             </label>
                         </div>
 

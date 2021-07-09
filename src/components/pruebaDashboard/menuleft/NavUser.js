@@ -8,11 +8,12 @@ import NavProfile from './NavProfile';
 import "../menuleft/navUser.scss"
 
 function NavUser() {
+
   return (
     <>
       <div className="navUser">
         <Head />
-        <NavProfile />
+        <NavProfile user="username"/>
         <div className="title__user22">
           <span className="title__user1">
             <p>Vista de usuario </p>

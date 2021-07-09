@@ -51,6 +51,7 @@
         span {
             text-align: left;
             color: $secundary-color;
+            font-weight: 700;
         }
     }
     &__footer {
@@ -65,9 +66,43 @@
         @extend .login__container--title;
         margin: 1rem 0;
     }
-    
-    
 
+    &__label-switch {
+        display: flex;
+        justify-content:space-evenly;
+        align-items: center;
+        margin-top: 25px;
+    }
+}
+
+.lbl {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    background: $grey-color-one;
+    border-radius: 100px;
+    cursor: pointer;
+    position: relative;
+}
+.lbl::after{
+    content: '';
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: $secundary-color;
+    border-radius: 100px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    transition: .3s;
+}
+
+#switch:checked + .lbl::after {
+    left: 65px;
+}
+
+#switch {
+    display: none;
 }
 
 @media screen and (min-width: 768px) {
@@ -86,4 +121,4 @@
             gap: 1rem;
         }
     }
-}
+} 

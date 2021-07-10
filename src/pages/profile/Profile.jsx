@@ -68,8 +68,6 @@ const Profile = () => {
             "gender": gender
         }
 
-        console.log(bodyRequest);
-
         fetch('https://api.hardmakers.com/api/v1/profile/information/',{
             method: 'PUT',
             body: JSON.stringify(bodyRequest),

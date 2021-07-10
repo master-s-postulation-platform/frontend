@@ -35,7 +35,6 @@ const Register = () => {
       if (password !== password2) {
         return false
       } else {
-        console.log('Las contraseñas son iguales')
         return true
       }
     }
@@ -61,15 +60,8 @@ const Register = () => {
         if (data.error === false) {
           loginRegister(dispatch, data)
           history.push('/dashboard');
-          console.group('Incio de Sesion');
-          
-          console.log('Test');
-          console.log(history.push('/dashboard'))
-        
-        console.groupEnd('Final')
 
         } else {
-          console.log(data)
           setActive(true)
         }
       })

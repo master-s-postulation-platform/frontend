@@ -7,13 +7,12 @@ import { loginUser, useAuthState, useAuthDispatch } from '../../Context';
 import Modal from '../modals/Modal';
 
 const Login = (props) => {
-  const location = useLocation();
-  console.log(location.pathname);
+  /* const location = useLocation();
+  console.log(location.pathname); */
 
-  const history = useHistory()
+  const historia = useHistory()
 
   const dispatch = useAuthDispatch();
-  const { loading, errorMessage } = useAuthState();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -35,17 +34,21 @@ const Login = (props) => {
 
       if (response.error === true) {
         setActive(true)
-        /* alert(response.message) */
         return;
       } else {
-        // props.history.push('/dashboard');
-        console.log('Test');
-        // history.push('/dashboard');
-        history.push('/dashboard');
+        historia.push('/dashboard');
+
+        console.group('Incio de Sesion');
+          
+          console.log('Test');
+          console.log(historia.push('/dashboard'))
+        
+        console.groupEnd('Final')
 
       }
     } catch (error) {
       console.log(error)
+      
     }
   }
 
@@ -82,7 +85,7 @@ const Login = (props) => {
             <br />
             <p className="login__form--text">¿Olvidó su contraseña?</p>
             <br />
-            <button className="login__form--btn" type="submit" onClick={handleLogin}>INICIO DE SESIÓN</button>
+            <button className="login__form--btn" type="button" onClick={handleLogin}>INICIO DE SESIÓN</button>
             <br />
             <p className="login__form--text">¿No tiene una cuenta?</p>
             <br />

@@ -103,13 +103,37 @@ const ProfesionalExperience = () => {
                                     <button className="primary__button" onClick={submitForm}>Guardar y continuar</button>
                                 </div>
                             </form>
+
+                            <h3 className="form__title">Mi Experiencia profesional</h3>
+                            <section className="form">
+                                <table>
+                                    <tr>
+                                        <th>Compañia</th>
+                                        <th>Puesto</th>
+                                        <th>Inicio</th>
+                                        <th>Fin</th>
+                                    </tr>
+                                    
+                                    {experience.map((job)=>(
+                                    <tr key={job.id}>
+                                        
+                                        <td>{job.company_name}</td>
+                                        <td>{job.description}</td>
+                                        <td>{job.start}</td>
+                                        <td>{job.end}</td>
+                                    </tr>
+                                ))}
+                                    
+                                </table>
+                            </section>
                         </section>
+
                     </section>
                 </section>
             </section>
-            <section className="section">
+            {/* <section className="section"> */}
 
-            <section className="section__background">
+           {/*  <section className="section__background">
             </section>
                 <section className="section__content">
                     <section className="section__grid">
@@ -138,7 +162,7 @@ const ProfesionalExperience = () => {
                         </section>
                     </section>
                 </section>
-            </section>
+            </section> */}
         </>
     )
 }

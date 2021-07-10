@@ -1,8 +1,26 @@
 import React from 'react';
 import './headerDashboard.scss';
 import iconUser from '../../pages/Dashboard/images/Icono-Usuario.svg';
+import { logout, useAuthDispatch } from '../../Context';
+import { useHistory } from 'react-router-dom';
 
 function HeaderDashboard({user}) {
+  
+  
+  const history = useHistory()
+
+  const dispatch = useAuthDispatch();
+
+  const handleLogout = async (e) => {
+    e.preventDefault();
+
+    try {
+      logout(dispatch);
+      history.push('/login');
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return(
     <>
@@ -21,7 +39,7 @@ function HeaderDashboard({user}) {
                       <a className="link" href="#">Perfil</a>
                     </li>
                     <li>
-                      <a  className="link" href="/login">Cerrar</a>
+                      <a  className="link" onClick={handleLogout}>Cerrar</a>
                     </li>
                   </ul>
                 </li>

@@ -34,7 +34,7 @@ function App() {
             component={Register}
             isPrivate={false}
           />
-          <AppRoutes path="/dashboard" component={RouterDashboard} isPrivate={false} />
+          <AppRoutes path="/dashboard" component={RouterDashboard} isPrivate={true} />
           <AppRoutes
             exact
             path="/*"

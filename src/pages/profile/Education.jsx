@@ -55,61 +55,6 @@ const Education = () => {
 
     }, [])
 
-    console.group('Prueba')
-    console.log(education.forEach((item) => {
-        item
-    }))
-
-    console.log(education.map(item => item.gotten_grade.name))
-    console.groupEnd()
-
-    /* const result = async () => {
-
-        const respuesta = await fetch('https://api.hardmakers.com/api/v1/profile/education/',{
-            method: 'GET',
-            headers: {
-                'Authorization': `Token ${userDetails.token}`,
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            setEducation(data.data)
-            return data.data;
-        })
-    }
-
-
-    console.log(result()) */
-
-
-    /* const getEducation = () => {
-        fetch('https://api.hardmakers.com/api/v1/profile/education/',{
-            method: 'GET',
-            headers: {
-                'Authorization': `Token ${userDetails.token}`,
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            setEducation(data.data)
-        })
-    }
-     */
-
-
-
-
-    /* {
-        "institution_name":"colegio agustin",
-        "year_end":"2010-06-17",
-        "last_grade_id":"1",
-        "gotten_grade_id":1
-    } */
-
     const handleInstitution = (e) => {
         setInstitution(
             e.target.value

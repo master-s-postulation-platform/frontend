@@ -11,3 +11,5 @@ const Postulantes = () => {
 }
 
 export default Postulantes
+
+

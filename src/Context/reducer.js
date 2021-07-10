@@ -3,12 +3,15 @@ let user = localStorage.getItem("currentUser")
   : "";
 let token = localStorage.getItem("currentUser")
   ? JSON.parse(localStorage.getItem("currentUser")).login.auth_token : "";
+let admin = localStorage.getItem("currentUser")
+  ? JSON.parse(localStorage.getItem("currentUser")).admin_auth : "";
 
   /* .signup.login.auth_token
  */
 export const initialState = {
   userDetails: "" || user,
   token: "" || token,
+  admin: "" || admin,
   loading: false,
   errorMessage: null,
 };
@@ -27,6 +30,7 @@ export const AuthReducer = (initialState, action) => {
         ...initialState,
         userDetails: action.payload.user,
         token: action.payload.auth_token,
+        admin: action.payload.admin_auth,
         loading: false,
       };
       break;
@@ -36,12 +40,12 @@ export const AuthReducer = (initialState, action) => {
         ...initialState,
         userDetails: action.payload.data,
         token: action.payload.data.login.auth_token,
+        admin: action.payload.admin_auth,
         loading: false,
       };
       break;
 
     case "LOGOUT":
-      console.log("logout");
       return {
         ...initialState,
         userDetails: "",

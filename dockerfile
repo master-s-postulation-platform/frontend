@@ -6,12 +6,10 @@ ENV PATH /app/node_modules/.bin:$PATH
 
 COPY package.json ./
 
-RUN npm install --silent
+RUN npm install
 
 EXPOSE 3006
 
 COPY . ./
-
-RUN npm run build
 
 CMD ["npm", "start"]

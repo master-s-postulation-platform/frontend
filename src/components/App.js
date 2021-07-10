@@ -25,23 +25,24 @@ function App() {
     <AuthProvider>
       <Router>
         <RouterHeader />
-        <Switch>
-          <AppRoutes exact path="/" component={Landing} isPrivate={false} />
-          <AppRoutes exact path="/login" component={Login} isPrivate={false} />
-          <AppRoutes
-            exact
-            path="/register"
-            component={Register}
-            isPrivate={false}
-          />
-          <AppRoutes path="/dashboard" component={RouterDashboard} isPrivate={true} />
-          <AppRoutes
-            exact
-            path="/*"
-            component={PageNotFound}
-            isPrivate={false}
-          />
-        </Switch>
+          <Switch>
+            <AppRoutes exact path="/" component={Landing} isPrivate={false} />
+            <AppRoutes exact path="/login" component={Login} isPrivate={false} />
+            <AppRoutes
+              exact
+              path="/register"
+              component={Register}
+              isPrivate={false}
+            />
+
+            <AppRoutes path="/dashboard" component={RouterDashboard} isPrivate={true} />
+            <AppRoutes
+              exact
+              path="/*"
+              component={PageNotFound}
+              isPrivate={false}
+            />
+          </Switch>
         <RouterFooter />
       </Router>
     </AuthProvider>
@@ -61,3 +62,4 @@ function RouterDashboard() {
     </Switch>
   )
 }
+

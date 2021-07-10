@@ -26,7 +26,7 @@ const Profile = () => {
         .then(response => response.json())
         .then( data => {
             
-            console.log(data)
+            
 
             if (!data.data.profile[0].user) {
                 
@@ -78,7 +78,7 @@ const Profile = () => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
+            /* console.log(data) */
         })
     }
 

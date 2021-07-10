@@ -1,11 +1,14 @@
 import React from 'react';
 import './headerDashboard.scss';
 import iconUser from '../../pages/Dashboard/images/Icono-Usuario.svg';
-import { logout, useAuthDispatch } from '../../Context';
+import { logout, useAuthDispatch, useAuthState } from '../../Context';
 import { useHistory } from 'react-router-dom';
 
 function HeaderDashboard({user}) {
   
+  const userDetails = useAuthState();
+
+  let title = userDetails.admin;
   
   const history = useHistory()
 
@@ -48,7 +51,7 @@ function HeaderDashboard({user}) {
       </header>
         <div className="saludo">
           <div className="saludo__bienvenida">
-            <h1>Bienvenido username</h1>
+            <h1>Bienvenido {title === true ? 'Administrador' : 'Username' }</h1>
             <h1>¿Cómo estás hoy?</h1>
           </div>
         </div>

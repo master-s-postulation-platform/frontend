@@ -2,22 +2,25 @@ import React from 'react';
 import reportes from "../../../pages/Dashboard/images/icono-reportes.png";
 import puntaje from "../../../pages/Dashboard/images/icono-categoria-puntaje.svg";
 import { Link, useLocation, NavLink } from 'react-router-dom';
+import { useAuthState } from '../../../Context'
 
 import Head from './Head';
 import NavProfile from './NavProfile';
 import "../menuleft/navUser.scss"
 
 function NavUser() {
+  const userDetails = useAuthState();
+
+  let users = userDetails.admin;
 
   return (
     <>
       <div className="navUser">
         <Head />
         <NavProfile user="Administrador" />
-        { }
+        { users === true ? <ItemAdmin /> : <ItemUser/> }
 
-        {/* <ItemUser/> */}
-        <ItemAdmin />
+        
       </div>
     </>
   )
@@ -106,7 +109,7 @@ function ItemAdmin() {
               <br/>
               <span className="navList__subheading-icon"></span>
               <span className="navList__subheading-title">
-                <Link to="/dashboard/Postulantes">Postulantes</Link>
+                <Link to="/dashboard/postulantes">Postulantes</Link>
               </span>
             </div>
           </li>
@@ -114,7 +117,7 @@ function ItemAdmin() {
             <div className="navList__subheading">
               <span className="navList__subheading-icon"></span>
               <span className="navList__subheading-title">
-                <Link to="/dashboard/Postulantes">Administradores</Link>
+                <Link to="/dashboard/usuario">Administradores</Link>
               </span>
             </div>
           </li>

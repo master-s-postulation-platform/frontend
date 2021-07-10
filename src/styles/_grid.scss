@@ -11,13 +11,13 @@
 
     &__content {
         width: 90%;
-        height: 110vh;
         margin: 0 auto;
         max-width: 1200px;
         padding: 2rem 0;
     }
 
     &__grid {
+        height: 100vh;
         text-align: center;
     }
 }

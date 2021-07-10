@@ -60,7 +60,14 @@ const Register = () => {
       .then(data => {
         if (data.error === false) {
           loginRegister(dispatch, data)
-          history.push('/login');
+          history.push('/dashboard');
+          console.group('Incio de Sesion');
+          
+          console.log('Test');
+          console.log(history.push('/dashboard'))
+        
+        console.groupEnd('Final')
+
         } else {
           console.log(data)
           setActive(true)

@@ -8,10 +8,21 @@ const ProfesionalExperience = () => {
     const [start, setStart] = useState("")
     const [end, setEnd] = useState("")
     const [description, setDescription] = useState("")
+    const [resultRequest, setResultRequeest] = useState([])
 
-    // useEffect(() => {
-        
-    // }, [])
+    useEffect(() => {
+        fetch('https://api.hardmakers.com/api/v1/profile/experience/',{
+            method: 'GET',
+            headers: {
+                'Authorization': `Token ${userDetails.token}`,
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            setExperience(data.data)
+        }) 
+    }, [resultRequest])
     
     const submitForm = (e) => {
         e.preventDefault();
@@ -22,8 +33,6 @@ const ProfesionalExperience = () => {
             "end": end,
             "description": description
         }
-
-        console.log(bodyRequest);
         
         fetch('https://api.hardmakers.com/api/v1/profile/experience/',{
             method: 'POST',
@@ -35,31 +44,14 @@ const ProfesionalExperience = () => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
+            setResultRequeest(data)
             setCompany("")
             setStart("")
             setEnd("")
             setDescription("")
-            getExperiende()
         })
     }   
 
-    const getExperiende = () => {
-        fetch('https://api.hardmakers.com/api/v1/profile/experience/',{
-            method: 'GET',
-            headers: {
-                'Authorization': `Token ${userDetails.token}`,
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            setExperience(data.data)
-        })
-    }
-    
-    getExperiende()
 
     return (
         <>
@@ -107,22 +99,26 @@ const ProfesionalExperience = () => {
                             <h3 className="form__title">Mi Experiencia profesional</h3>
                             <section className="form">
                                 <table>
-                                    <tr>
-                                        <th>Compañia</th>
-                                        <th>Puesto</th>
-                                        <th>Inicio</th>
-                                        <th>Fin</th>
-                                    </tr>
-                                    
+                                    <thead>
+                                        <tr>
+                                            <th>Compañia</th>
+                                            <th>Puesto</th>
+                                            <th>Inicio</th>
+                                            <th>Fin</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
                                     {experience.map((job)=>(
-                                    <tr key={job.id}>
-                                        
-                                        <td>{job.company_name}</td>
-                                        <td>{job.description}</td>
-                                        <td>{job.start}</td>
-                                        <td>{job.end}</td>
-                                    </tr>
-                                ))}
+                                        <tr key={job.id}>
+                                            
+                                            <td>{job.company_name}</td>
+                                            <td>{job.description}</td>
+                                            <td>{job.start}</td>
+                                            <td>{job.end}</td>
+                                        </tr>
+                                    ))}
+
+                                    </tbody>
                                     
                                 </table>
                             </section>

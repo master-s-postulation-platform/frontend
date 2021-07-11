@@ -82,10 +82,14 @@ const Jobs = () => {
           <h3 className="form__title">Situación laboral</h3>
 
           <form className="form">
-
             <label className="form__label" htmlFor="situacion_laboral">
               <span>Situación Laboral*</span>
-              <select name="situacion_laboral" className="form__select" onChange={onChangeHandler} value={has_job} >
+              <select
+                name="situacion_laboral"
+                className="form__select"
+                onChange={onChangeHandler}
+                value={has_job}
+              >
                 {/* <option>¿Se encuentra trabajando actualmente?</option> */}
                 <option value={true}>Si</option>
                 <option value={false}>No</option>
@@ -93,39 +97,57 @@ const Jobs = () => {
             </label>
             <label className="form__label" htmlFor="Empresa">
               <span>Empresa*</span>
-              <input className="form__input" type="text" name="empresa" value={company_name} onChange={e => (setCompanyName(e.target.value))} />
+              <input
+                className="form__input"
+                type="text"
+                name="empresa"
+                value={company_name}
+                onChange={(e) => setCompanyName(e.target.value)}
+              />
             </label>
 
-
             <div className="form__column--2">
-
-
-
               <label className="form__label" htmlFor="Salario">
                 <span>Salariio mensual</span>
                 <small>(antes de impuestos en dólares)</small>
-                <input className="form__input" type="number" name="empresa" placeholder="$00.oo" value={salary} onChange={e => (setSalary(e.target.value))} />
+                <input
+                  className="form__input"
+                  type="number"
+                  name="empresa"
+                  placeholder="$00.oo"
+                  value={salary}
+                  onChange={(e) => setSalary(e.target.value)}
+                />
               </label>
               <label className="form__label" htmlFor="cambiar_trabajo">
                 <span>¿Desea Cambiar de trabajo?</span>
                 <div className="form__label-switch">
                   <p>No</p>
-                  <input className='form__checkbox choose' checked={change_opt ? true : false} type="checkbox" id="switch" name="cambiar_trabajo" value={change_opt} onChange={onHandleCheckbox} />
-                  <label htmlFor="switch" className='lbl choose'></label>
+                  <input
+                    className="form__checkbox choose"
+                    checked={change_opt ? true : false}
+                    type="checkbox"
+                    id="switch"
+                    name="cambiar_trabajo"
+                    value={change_opt}
+                    onChange={onHandleCheckbox}
+                  />
+                  <label htmlFor="switch" className="lbl choose"></label>
                   <p>Si</p>
                 </div>
               </label>
-
             </div>
             <div className="form__footer">
               {/* <button className="secondary__button">Guardar parcial</button> */}
-              <button className="primary__button" onClick={submitForm}>Guardar y continuar</button>
+              <button className="primary__button green" onClick={submitForm}>
+                Guardar y continuar
+              </button>
             </div>
           </form>
         </section>
       </section>
     </section>
-  )
+  );
 }
 
 

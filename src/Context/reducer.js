@@ -4,7 +4,7 @@ let user = localStorage.getItem("currentUser")
 let token = localStorage.getItem("currentUser")
   ? JSON.parse(localStorage.getItem("currentUser")).login.auth_token : "";
 let admin = localStorage.getItem("currentUser")
-  ? JSON.parse(localStorage.getItem("currentUser")).admin_auth = true: "";
+  ? JSON.parse(localStorage.getItem("currentUser")).admin_auth : "";
 
   /* .signup.login.auth_token
  */

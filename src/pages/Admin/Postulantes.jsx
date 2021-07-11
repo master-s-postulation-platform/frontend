@@ -4,13 +4,14 @@ import { useAuthState } from '../../Context';
 const Postulantes = () => {
   const userDetails = useAuthState();
 
-  console.log(userDetails.userDetails.admin_auth)
-  console.log(userDetails)
+  /* console.log(userDetails.userDetails.admin_auth)
+  console.log(userDetails) */
 
   const [postulantes, setPostulantes] = useState([]);
+  const [count, setCount] = useState([]);
 
   useEffect(() => {
-    fetch('https://api.hardmakers.com/api/v1/administration/candidates/', {
+    fetch('https://api.hardmakers.com/api/v1/administration/candidates/?page=1&ippage=30', {
         method: 'GET',
         headers: {
             'Authorization': `Token ${userDetails.token}`,
@@ -19,14 +20,13 @@ const Postulantes = () => {
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
-            setPostulantes(data.data)
+            setPostulantes(data.data.data)
+            setCount(data.data)
         })
 
   }, [])
-  console.group('Valor estado postulantes');
-    console.log(postulantes)
-  console.groupEnd()
+
+
 
   return (
     <section className="section">
@@ -39,7 +39,7 @@ const Postulantes = () => {
                 <h1 className="section__reporTitle">Reportes</h1>
               </div>
               <div className="section__numberPostulantes">
-                <h1>Usuarios registrados: 305</h1>
+                <h1>Usuarios registrados: {count.count}</h1>
               </div>
               <table className="section__tablePostu">
                 <thead className="section__thead">
@@ -48,19 +48,30 @@ const Postulantes = () => {
                         <th>Review status</th>
                         <th>Estado proceso</th>
                         <th>Puntaje total</th>
+                        <th>Ver Perfil</th>
                     </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Carlos Diaz</td>
-                    <td>Calificado</td>
-                    <td>Aceptado</td>
-                    <td>300</td>
-                  </tr>
+                {
+                  postulantes.map((postulante) => (
+                    <tr key={postulante.id}>
+                      <td>{postulante.user.username}</td>
+                      <td>{postulante.is_reviewed === false ? "No Revisado" : "Revisado" }</td>
+                      <td>{postulante.process_status === false ? "No Aceptado" : "Aceptado" }</td>
+                      <td>{postulante.total_score}</td>
+                      <td>{postulante.id}</td>
+                    </tr>
+                  )
+                )}
                 </tbody>
               </table>
-
-              <h1>Postulantes administracion Postulantes administracion Postulantes administracion Postulantes administracion</h1>
+              <br/>
+              <div>
+                <button>Prev</button>
+                <button>1</button>
+                <button>2</button>
+                <button>next</button>
+              </div>
           </div>
         </div>
       </section>

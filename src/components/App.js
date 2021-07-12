@@ -38,7 +38,7 @@ function App() {
               component={Register}
               isPrivate={false}
             />
-            <AppRoutes path="/dashboard" component={RouterDash} isPrivate={true} />
+            <AppRoutes path="/dashboard" component={RouterDashboard} isPrivate={true} />
             <AppRoutes
               exact
               path="/*"
@@ -56,40 +56,22 @@ export default App;
 
 
 
-function RouterDash() {
+
+function RouterDashboard() {
   const userDetails = useAuthState();
   const useAdmin = userDetails.admin;
 
   return (
     <Switch>
-      <AppRoutes exact path='/dashboard' component={useAdmin === true ? RouterDashboard1 : RouterDashboard} isPrivate={false} />
-    </Switch>
-  )
-}
-
-
-
-function RouterDashboard() {
-  
-
-  return (
-    <Switch>
-      <AppRoutes exact path='/dashboard' component={Profile} isPrivate={false} />
+      <AppRoutes exact path='/dashboard' component={useAdmin === true ? Postulantes : Profile} isPrivate={false} />
       <AppRoutes exact path='/dashboard/jobs' component={Jobs} isPrivate={false} />
       <AppRoutes exact path='/dashboard/profesional' component={ProfesionalExperience} isPrivate={false} />
       <AppRoutes exact path='/dashboard/education' component={Education} isPrivate={false} />
       <AppRoutes exact path='/dashboard/idioms' component={Idioms} isPrivate={false} />
-    </Switch>
-  )
-}
-
-function RouterDashboard1() {
-
-  return (
-    <Switch>
       <AppRoutes exact path='/dashboard' component={Postulantes} isPrivate={false} />
       <AppRoutes exact path='/dashboard/usuario/:idUser' component={Usuario} isPrivate={false} />
     </Switch>
   )
 }
+
 

@@ -20,7 +20,7 @@ const Postulantes = () => {
   console.log(pages)
   
   useEffect(() => {
-    fetch('https://api.hardmakers.com/api/v1/administration/candidates/?page=1&ippage=18', {
+    fetch('https://api.hardmakers.com/api/v1/administration/candidates/?page=1&ippage=18&sort=desc', {
       method: 'GET',
       headers: {
         'Authorization': `Token ${userDetails.token}`,

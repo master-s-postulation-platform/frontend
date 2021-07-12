@@ -65,7 +65,6 @@ function RouterDashboard() {
       <AppRoutes exact path='/dashboard/profesional' component={ProfesionalExperience} isPrivate={false} />
       <AppRoutes exact path='/dashboard/education' component={Education} isPrivate={false} />
       <AppRoutes exact path='/dashboard/idioms' component={Idioms} isPrivate={false} />
-      <AppRoutes exact path='/dashboard/postulantes' component={Postulantes} isPrivate={false} />
       <AppRoutes exact path='/dashboard/usuario' component={Usuario} isPrivate={false} />
     </Switch>
   )

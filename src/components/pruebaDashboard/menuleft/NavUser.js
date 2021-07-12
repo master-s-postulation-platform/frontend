@@ -109,7 +109,7 @@ function ItemAdmin() {
               <br/>
               <span className="navList__subheading-icon"></span>
               <span className="navList__subheading-title">
-                <Link to="/dashboard/postulantes">Postulantes</Link>
+                <Link to="/dashboard">Postulantes</Link>
               </span>
             </div>
           </li>

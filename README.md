@@ -1,9 +1,7 @@
 
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+[![Contributors][contributors-shield]][https://github.com/master-s-postulation-platform/frontend/graphs/contributors]
+[![Issues][issues-shield]][https://github.com/master-s-postulation-platform/frontend/issues]
+
 
 
 
@@ -23,9 +21,9 @@
     <a href="https://github.com/master-s-postulation-platform/frontend"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://master-postulation-pltaform.netlify.app/">View Demo</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
+    <a href="https://github.com/master-s-postulation-platform/frontend/issues">Report Bug</a>
     ·
 
   </p>
@@ -70,9 +68,9 @@
 
 ### Built With
 
-* [React]()
-* [React Router Dom]()
-* [Sass]()
+* [React](https://github.com/facebook/react)
+* [React Router](https://github.com/ReactTraining/react-router)
+* [Sass](https://sass-lang.com/)
 
 
 

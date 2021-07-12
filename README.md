@@ -62,7 +62,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://github.com/master-s-postulation-platform/frontend/blob/main/src/images/landing.png)
+
+
+![Talent Jobs Home](https://github.com/master-s-postulation-platform/frontend/blob/main/src/images/landing.png "Talent Jobs")
 
 
 

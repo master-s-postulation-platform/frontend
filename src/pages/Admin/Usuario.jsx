@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom'
-
+import { useAuthState } from '../../Context';
 
 const Usuario = () => {
 
-  const { id } = useParams()
- 
+  const userDetails = useAuthState();
+  const { idUser } = useParams();
+  console.log(idUser)
+  
+  useEffect(()=>{
+    fetch(`https://api.hardmakers.com/api/v1/administration/candidates/${idUser}`,{ 
+      method: 'GET',
+      headers: {
+          'Authorization': `Token ${userDetails.token}`,
+          'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+  },[])
 
   return ( 
     <div>
@@ -14,7 +29,7 @@ const Usuario = () => {
           <section className="section__background">
             <section className="section__content">
               <section className="section__grid">
-                <h3 className="form__title">Usuario {id}</h3>   
+                <h3 className="form__title">Usuario {idUser}</h3>   
                 <div className="user">
 
                 </div>

@@ -5,9 +5,9 @@ import { useHistory, useParams } from 'react-router-dom'
 const Usuario = () => {
 
   const { id } = useParams()
-  console.log(id)
+ 
 
-  return (
+  return ( 
     <div>
       <section>
         <section className="section">
@@ -24,7 +24,7 @@ const Usuario = () => {
         </section>
       </section>
     </div>
-  )
+    )
 }
 
 export default Usuario

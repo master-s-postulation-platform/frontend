@@ -74,7 +74,7 @@ const Postulantes = () => {
                       <td>{postulante.is_reviewed === false ? "No Revisado" : "Revisado" }</td>
                       <td>{postulante.process_status === false ? "No Aceptado" : "Aceptado" }</td>
                       <td>{postulante.total_score}</td>
-                      <td><Link to={`dashboard/usuario/${postulante.id}`}>{postulante.id}</Link></td>
+                      <td><Link to={`dashboard/usuario/${postulante.user.id}`} className="link__postulante">{postulante.user.id}</Link></td>
                     </tr>
                   )
                 )}

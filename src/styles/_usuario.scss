@@ -1,3 +1,39 @@
-.usuraio {
-    border: 1px solid red;
+@import './variables';
+
+.user {
+    
+    width: 800px;
+    margin-left: 250px;
+    margin-right: 2rem;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2em;
+    text-align: center;
+    &__container {
+        // border: 1px solid green;
+    }
+    &__header {
+        background-color: $color-button-magenta-first;
+        width: 100%;
+        padding: 1rem 0;
+        color: $grey-color-one;
+        font-weight: bold;
+    }
+    &__content {
+        padding: 1rem 1rem;
+        text-align: left;
+    }
+   
+}
+.content__item {
+    display: block;
+}
+.alert__empty {
+    border: 1px solid $secundary-color;
+    border-radius: 5px;
+    padding:.1em .5em;
+    background-color: $grey-color-one;
+    font-size: .9rem;
+
 }

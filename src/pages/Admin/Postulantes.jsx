@@ -2,14 +2,62 @@ import React, { useState, useEffect } from 'react';
 import { useAuthState } from '../../Context';
 import {Link} from 'react-router-dom';
 
+const API = 'https://api.hardmakers.com/api/v1/administration/candidates/?page=1&ippage=30&sort=desc&2xlsx='
+
+function getReport(userDetails, file_type){
+
+  let ext = '';
+  if (file_type == '1'){
+    ext = 'xlsx'
+  }
+  else {
+    ext = 'pdf'
+  }
+
+  fetch(`${API}${file_type}`, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Token ${userDetails.token}`,
+            'Content-Type': 'application/json'
+        }
+  })
+  .then(response => {
+      response.blob()
+    }
+  )
+  .then(blob => {
+    const url = window.URL.createObjectURL(new Blob([blob]));
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', `Report.${ext}`);
+    // 3. Append to html page
+    document.body.appendChild(link);
+    // 4. Force download
+    link.click();
+    // 5. Clean up and remove the link
+    link.parentNode.removeChild(link);
+  })
+}
+
+
 const Postulantes = () => {
   const userDetails = useAuthState();
-
+  
   /* console.log(userDetails.userDetails.admin_auth)
   console.log(userDetails) */
-
+  
   const [postulantes, setPostulantes] = useState([]);
   const [count, setCount] = useState([]);
+  
+  function handleDownloadPdf(e){
+    getReport(userDetails, '2')
+  }
+
+  function handleDownloadExcel(e){
+    console.log("excel clicked")
+    getReport(userDetails, '1')
+  }
+
 
   useEffect(() => {
     fetch('https://api.hardmakers.com/api/v1/administration/candidates/?page=1&ippage=30', {
@@ -41,6 +89,10 @@ const Postulantes = () => {
               </div>
               <div className="section__numberPostulantes">
                 <h1>Usuarios registrados: {count.count}</h1>
+              </div>
+              <div className="section__export">
+                <label onClick={handleDownloadPdf}>Download PDF</label>
+                <label onClick={handleDownloadExcel}>Download Excel</label>
               </div>
               <table className="section__tablePostu">
                 <thead className="section__thead">

@@ -23,6 +23,8 @@ import Postulantes from "../pages/Admin/Postulantes";
 import Usuario from "../pages/Admin/Usuario";
 
 function App() {
+  
+
   return (
     <AuthProvider>
       <Router>
@@ -36,8 +38,7 @@ function App() {
               component={Register}
               isPrivate={false}
             />
-
-            <AppRoutes path="/dashboard" component={RouterDashboard} isPrivate={true} />
+            <AppRoutes path="/dashboard" component={RouterDash} isPrivate={true} />
             <AppRoutes
               exact
               path="/*"
@@ -53,19 +54,40 @@ function App() {
 
 export default App;
 
-function RouterDashboard() {
-  const useDetails = useAuthState();
 
-  let useAdmin = useDetails.admin;
+
+function RouterDash() {
+  const userDetails = useAuthState();
+  const useAdmin = userDetails.admin;
 
   return (
     <Switch>
-      <AppRoutes exact path='/dashboard' component={useAdmin === true ? Postulantes : Profile} isPrivate={false} />
+      <AppRoutes exact path='/dashboard' component={useAdmin === true ? RouterDashboard1 : RouterDashboard} isPrivate={false} />
+    </Switch>
+  )
+}
+
+
+
+function RouterDashboard() {
+  
+
+  return (
+    <Switch>
+      <AppRoutes exact path='/dashboard' component={Profile} isPrivate={false} />
       <AppRoutes exact path='/dashboard/jobs' component={Jobs} isPrivate={false} />
       <AppRoutes exact path='/dashboard/profesional' component={ProfesionalExperience} isPrivate={false} />
       <AppRoutes exact path='/dashboard/education' component={Education} isPrivate={false} />
       <AppRoutes exact path='/dashboard/idioms' component={Idioms} isPrivate={false} />
-      <AppRoutes exact path='/dashboard/postulantes' component={Postulantes} isPrivate={false} />
+    </Switch>
+  )
+}
+
+function RouterDashboard1() {
+
+  return (
+    <Switch>
+      <AppRoutes exact path='/dashboard' component={Postulantes} isPrivate={false} />
       <AppRoutes exact path='/dashboard/usuario/:idUser' component={Usuario} isPrivate={false} />
     </Switch>
   )

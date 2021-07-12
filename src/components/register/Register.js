@@ -58,6 +58,7 @@ const Register = () => {
       .then(response => response.json())
       .then(data => {
         if (data.error === false) {
+
           loginRegister(dispatch, data)
           history.push('/dashboard');
 

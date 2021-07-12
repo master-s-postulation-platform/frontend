@@ -1,10 +1,4 @@
 
-[![Contributors][contributors-shield]][https://github.com/master-s-postulation-platform/frontend/graphs/contributors]
-[![Issues][issues-shield]][https://github.com/master-s-postulation-platform/frontend/issues]
-
-
-
-
 
 <!-- PROJECT LOGO -->
 <br />

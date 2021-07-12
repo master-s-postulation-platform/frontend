@@ -4,7 +4,7 @@ import {
   Switch
 } from "react-router-dom";
 import AppRoutes from "../components/AppRoutes";
-import { AuthProvider } from "../Context";
+import { AuthProvider, useAuthState } from "../Context";
 
 import RouterHeader from "./RouterHeader";
 import RouterFooter from "./RouterFooter";
@@ -19,29 +19,33 @@ import ProfesionalExperience from "../pages/profile/ProfesionalExperience";
 import Education from "../pages/profile/Education";
 import Idioms from "../pages/profile/Idioms";
 import Jobs from "../pages/profile/Jobs";
+import Postulantes from "../pages/Admin/Postulantes";
+import Usuario from "../pages/Admin/Usuario";
 
 function App() {
+  
+
   return (
     <AuthProvider>
       <Router>
         <RouterHeader />
-        <Switch>
-          <AppRoutes exact path="/" component={Landing} isPrivate={false} />
-          <AppRoutes exact path="/login" component={Login} isPrivate={false} />
-          <AppRoutes
-            exact
-            path="/register"
-            component={Register}
-            isPrivate={false}
-          />
-          <AppRoutes path="/dashboard" component={RouterDashboard} isPrivate={false} />
-          <AppRoutes
-            exact
-            path="/*"
-            component={PageNotFound}
-            isPrivate={false}
-          />
-        </Switch>
+          <Switch>
+            <AppRoutes exact path="/" component={Landing} isPrivate={false} />
+            <AppRoutes exact path="/login" component={Login} isPrivate={false} />
+            <AppRoutes
+              exact
+              path="/register"
+              component={Register}
+              isPrivate={false}
+            />
+            <AppRoutes path="/dashboard" component={RouterDash} isPrivate={true} />
+            <AppRoutes
+              exact
+              path="/*"
+              component={PageNotFound}
+              isPrivate={false}
+            />
+          </Switch>
         <RouterFooter />
       </Router>
     </AuthProvider>
@@ -50,7 +54,24 @@ function App() {
 
 export default App;
 
+
+
+function RouterDash() {
+  const userDetails = useAuthState();
+  const useAdmin = userDetails.admin;
+
+  return (
+    <Switch>
+      <AppRoutes exact path='/dashboard' component={useAdmin === true ? RouterDashboard1 : RouterDashboard} isPrivate={false} />
+    </Switch>
+  )
+}
+
+
+
 function RouterDashboard() {
+  
+
   return (
     <Switch>
       <AppRoutes exact path='/dashboard' component={Profile} isPrivate={false} />
@@ -61,3 +82,14 @@ function RouterDashboard() {
     </Switch>
   )
 }
+
+function RouterDashboard1() {
+
+  return (
+    <Switch>
+      <AppRoutes exact path='/dashboard' component={Postulantes} isPrivate={false} />
+      <AppRoutes exact path='/dashboard/usuario/:idUser' component={Usuario} isPrivate={false} />
+    </Switch>
+  )
+}
+

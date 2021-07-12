@@ -12,7 +12,7 @@ export async function loginUser(dispatch, loginPayload) {
         dispatch({type: 'REQUEST_LOGIN'});
         let response = await fetch(`${API_URL}/token/login`,requestOptions);
         let data = await response.json();
-
+        console.log(data);
         
         if (data.error === false) {
             
@@ -26,11 +26,13 @@ export async function loginUser(dispatch, loginPayload) {
                         "signup": {"email": loginPayload.email},
                         "login": {
                             "auth_token": data.data.auth_token
-                        }
+                        },
+                        "admin_auth":data.admin_auth
                     }
                 }
+                
             }
-
+            
             dispatch({type: 'REQUEST_SUCCESS', payload: dataReconstruction});
             localStorage.setItem('currentUser', JSON.stringify(dataReconstruction.data.signup));
             return dataReconstruction;
@@ -54,7 +56,7 @@ export async function logout(dispatch){
 // First login after register new user
 
 export async function loginRegister(dispatch, registerPayload) {
-    // console.log(registerPayload)
+    
     dispatch({type: 'REQUEST_LOGIN'});
     dispatch({type: 'REGISTER_LOGIN', payload: registerPayload});
     localStorage.setItem('currentUser', JSON.stringify(registerPayload.data));

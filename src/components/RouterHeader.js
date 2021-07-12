@@ -7,7 +7,7 @@ import NavUser from './pruebaDashboard/menuleft/NavUser';
 
 const RouterHeader = () => {
   const location = useLocation();
-  console.log(location);
+  
   if (location.pathname.includes("/dashboard")) {
     return (
       <>

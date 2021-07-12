@@ -35,7 +35,6 @@ const Register = () => {
       if (password !== password2) {
         return false
       } else {
-        console.log('Las contraseñas son iguales')
         return true
       }
     }
@@ -59,10 +58,11 @@ const Register = () => {
       .then(response => response.json())
       .then(data => {
         if (data.error === false) {
+
           loginRegister(dispatch, data)
           history.push('/dashboard');
+
         } else {
-          console.log(data)
           setActive(true)
         }
       })

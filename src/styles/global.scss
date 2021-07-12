@@ -10,7 +10,11 @@
 @import "./register";
 @import "./profile.scss";
 @import "../components/modals/modal.scss";
-/* @import "../pages/Dashboard/dashboard.scss"; */
+@import "./postulantes";
+@import "./usuario";
+@import "./tablas";
+@import "./profesionalExperience";
+@import "./education";
 
 * {
   margin: 0;

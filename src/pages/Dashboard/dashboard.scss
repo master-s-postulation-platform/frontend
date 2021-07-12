@@ -364,6 +364,7 @@ p {
 }
 
 .footer {
+  position: fixed;
   grid-area: footer;
   display: flex;
   align-items: center;
@@ -505,7 +506,7 @@ p {
     }
     height: $height + px;
     line-height: $height + px;
-    padding: 0 (math.div($height,2) + px);
+    padding: 0 (math.div($height, 2) + px);
     display: inline-block;
     width: 180px;
     background: linear-gradient(

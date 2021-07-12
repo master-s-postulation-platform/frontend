@@ -2,56 +2,19 @@ import React, { useState, useEffect } from "react";
 import { useAuthState } from "../../Context/index.js";
 
 const ProfesionalExperience = () => {
-    const userDetails = useAuthState();
-    const [experience, setExperience] = useState([])
-    const [company_name, setCompany] = useState("")
-    const [start, setStart] = useState("")
-    const [end, setEnd] = useState("")
-    const [description, setDescription] = useState("")
-    const [resultRequest, setResultRequest] = useState([])
+  const userDetails = useAuthState();
+  const [experience, setExperience] = useState([]);
+  const [company_name, setCompany] = useState("");
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
+  const [description, setDescription] = useState("");
 
-    useEffect(() => {
-        fetch('https://api.hardmakers.com/api/v1/profile/experience/',{
-            method: 'GET',
-            headers: {
-                'Authorization': `Token ${userDetails.token}`,
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            setExperience(data.data)
-        }) 
-    }, [resultRequest])
-    
-    const submitForm = (e) => {
-        e.preventDefault();
-        
-        let bodyRequest = {
-            "company_name": company_name,
-            "start": start,
-            "end": end,
-            "description": description
-        }
-        
-        fetch('https://api.hardmakers.com/api/v1/profile/experience/',{
-            method: 'POST',
-            body: JSON.stringify(bodyRequest),
-            headers: {
-                'Authorization': `Token ${userDetails.token}`,
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            setResultRequest(data)
-            setCompany("")
-            setStart("")
-            setEnd("")
-            setDescription("")
-        })
-    }   
+  // useEffect(() => {
 
+  // }, [])
+
+  const submitForm = (e) => {
+    e.preventDefault();
 
     let bodyRequest = {
       company_name: company_name,
@@ -175,33 +138,15 @@ const ProfesionalExperience = () => {
                 </div>
               </form>
 
-                            <h3 className="form__title">Mi Experiencia profesional</h3>
-                            <section className="form">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Compañia</th>
-                                            <th>Puesto</th>
-                                            <th>Inicio</th>
-                                            <th>Fin</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    {experience.map((job)=>(
-                                        <tr key={job.id}>
-                                            
-                                            <td>{job.company_name}</td>
-                                            <td>{job.description}</td>
-                                            <td>{job.start}</td>
-                                            <td>{job.end}</td>
-                                        </tr>
-                                    ))}
-
-                                    </tbody>
-                                    
-                                </table>
-                            </section>
-                        </section>
+              <h3 className="form__title">Mi Experiencia profesional</h3>
+              <section className="form">
+                <table className="table__title1">
+                  <tr>
+                    <th>Compañia</th>
+                    <th>Puesto</th>
+                    <th>Inicio</th>
+                    <th>Fin</th>
+                  </tr>
 
                   {experience.map((job) => (
                     <tr key={job.id}>
@@ -253,4 +198,4 @@ const ProfesionalExperience = () => {
   );
 };
 
-export default ProfesionalExperience
+export default ProfesionalExperience;

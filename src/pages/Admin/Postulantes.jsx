@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuthState } from '../../Context';
+import {Link} from 'react-router-dom'
 
 const Postulantes = () => {
   const userDetails = useAuthState();
@@ -59,7 +60,7 @@ const Postulantes = () => {
                       <td>{postulante.is_reviewed === false ? "No Revisado" : "Revisado" }</td>
                       <td>{postulante.process_status === false ? "No Aceptado" : "Aceptado" }</td>
                       <td>{postulante.total_score}</td>
-                      <td>{postulante.id}</td>
+                      <td><Link to={`usuario/:${postulante.id}`}>{postulante.id}</Link></td>
                     </tr>
                   )
                 )}

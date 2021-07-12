@@ -30,6 +30,21 @@
     margin-top: 10px;
   }
 
+  &__export {
+    display: flex;
+    width: 400px;
+    align-content: flex-end;
+    justify-content: space-around;
+    margin: 20px 0px;
+    & label:hover {
+      background-color: aqua;
+      cursor: pointer;
+    }
+    & label {
+      padding: 5px;
+    }
+  }
+
   &__tablePostu {
     width: 100%;
     margin-top: 20px;

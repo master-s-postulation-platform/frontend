@@ -2,14 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { useAuthState } from '../../Context';
 import {Link} from 'react-router-dom';
 
+
 const Postulantes = () => {
   const userDetails = useAuthState();
-
+  
   /* console.log(userDetails.userDetails.admin_auth)
   console.log(userDetails) */
-
+  
   const [postulantes, setPostulantes] = useState([]);
   const [count, setCount] = useState([]);
+
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(18);

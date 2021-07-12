@@ -12,7 +12,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/master-s-postulation-platform/frontend">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://github.com/master-s-postulation-platform/frontend/blob/main/src/images/tlent-logo-github.png" alt="Logo">
   </a>
 
   <h3 align="center">Talent Jobs</h3>
@@ -64,7 +64,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/master-s-postulation-platform/frontend/blob/main/src/images/landing.png)
 
 
 

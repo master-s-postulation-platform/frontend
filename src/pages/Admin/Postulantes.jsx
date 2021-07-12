@@ -35,6 +35,7 @@ const Postulantes = () => {
 
   console.log(postulantes)
   console.log(count)
+  
   const pages = [];
   for (let i = 0; i <= Math.ceil(count.length / itemsPerPage); i++) {
     pages.push(i);

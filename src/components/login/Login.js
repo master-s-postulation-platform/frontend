@@ -2,13 +2,14 @@ import React, { Component, useState, useEffect } from 'react';
 import '../../styles/global.scss';
 import Input1 from '../input/Input1';
 import { Link } from 'react-router-dom';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useHistory, Redirect } from 'react-router-dom';
 import { loginUser, useAuthState, useAuthDispatch } from '../../Context';
 import Modal from '../modals/Modal';
+import Profile from '../../pages/profile/Profile'
 
 const Login = (props) => {
-  /* const location = useLocation();
-  console.log(location.pathname); */
+  const location = useLocation();
+  console.log(location.pathname);
 
   const historia = useHistory()
 
@@ -36,6 +37,8 @@ const Login = (props) => {
         setActive(true)
         return;
       } else {
+        
+
         historia.push('/dashboard');
 
         console.group('Incio de Sesion');

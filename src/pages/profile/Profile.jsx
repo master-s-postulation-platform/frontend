@@ -1,7 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useAuthState } from "../../Context/index.js";
+import { useHistory } from "react-router-dom";
 
 const Profile = () => {
+
+  const locatiion = useHistory();
+  console.log(locatiion);
+  
   const userDetails = useAuthState();
 
   const [first_name, setName] = useState("");

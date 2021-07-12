@@ -51,9 +51,14 @@
   background-size: cover;
   z-index: -1;
   &__bienvenida {
+    display: flex;
+    justify-content: space-between;
     padding-left: 280px;
     padding-top: 75px;
     color: $color-button-white;
+    img {
+      cursor: pointer;
+    }
   }
 }
 

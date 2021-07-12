@@ -3,6 +3,9 @@ import './headerDashboard.scss';
 import iconUser from '../../pages/Dashboard/images/Icono-Usuario.svg';
 import { logout, useAuthDispatch, useAuthState } from '../../Context';
 import { useHistory } from 'react-router-dom';
+import pdf from '../../images/Group652.png';
+import excel from '../../images/Group653.png';
+
 
 function HeaderDashboard({user}) {
   
@@ -51,8 +54,19 @@ function HeaderDashboard({user}) {
       </header>
         <div className="saludo">
           <div className="saludo__bienvenida">
-            <h1>Bienvenido {title === true ? 'Administrador' : 'Username' }</h1>
-            <h1>¿Cómo estás hoy?</h1>
+            <div>
+              <h1>Bienvenido {title === true ? 'Administrador' : 'Username' }</h1>
+              <h1>¿Cómo estás hoy?</h1>
+            </div>
+            {
+              title === true ?
+              <div>
+                <img src={pdf} alt="" />
+                <img src={excel} alt="" />
+              </div>
+                :
+                ''
+            }
           </div>
         </div>
     </div>

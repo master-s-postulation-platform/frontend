@@ -8,7 +8,7 @@ function NavProfile({user, photo}) {
     <>
       <div className="navUser__profile">
         <Avatar />
-        <AvatarTitle user="UserName"/>
+        <AvatarTitle user={user}/>
       </div>
     </>
   )

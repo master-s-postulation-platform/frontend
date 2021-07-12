@@ -27,7 +27,7 @@ export async function loginUser(dispatch, loginPayload) {
                         "login": {
                             "auth_token": data.data.auth_token
                         },
-                        "admin_auth": data.admin_auth
+                        "admin_auth":data.admin_auth
                     }
                 }
                 

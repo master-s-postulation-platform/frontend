@@ -4,7 +4,7 @@ import {
   Switch
 } from "react-router-dom";
 import AppRoutes from "../components/AppRoutes";
-import { AuthProvider } from "../Context";
+import { AuthProvider, useAuthState } from "../Context";
 
 import RouterHeader from "./RouterHeader";
 import RouterFooter from "./RouterFooter";
@@ -54,9 +54,13 @@ function App() {
 export default App;
 
 function RouterDashboard() {
+  const useDetails = useAuthState();
+
+  let useAdmin = useDetails.admin;
+
   return (
     <Switch>
-      <AppRoutes exact path='/dashboard' component={Profile} isPrivate={false} />
+      <AppRoutes exact path='/dashboard' component={useAdmin === true ? Postulantes : Profile} isPrivate={false} />
       <AppRoutes exact path='/dashboard/jobs' component={Jobs} isPrivate={false} />
       <AppRoutes exact path='/dashboard/profesional' component={ProfesionalExperience} isPrivate={false} />
       <AppRoutes exact path='/dashboard/education' component={Education} isPrivate={false} />

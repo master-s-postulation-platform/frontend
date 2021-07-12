@@ -12,7 +12,7 @@ const Postulantes = () => {
   const [count, setCount] = useState([]);
 
   useEffect(() => {
-    fetch('https://api.hardmakers.com/api/v1/administration/candidates/?page=1&ippage=30', {
+    fetch('https://api.hardmakers.com/api/v1/administration/candidates/?page=1&ippage=100', {
         method: 'GET',
         headers: {
             'Authorization': `Token ${userDetails.token}`,
@@ -21,6 +21,7 @@ const Postulantes = () => {
     })
         .then(response => response.json())
         .then(data => {
+          console.log(data)
             setPostulantes(data.data.data)
             setCount(data.data)
         })
@@ -60,7 +61,7 @@ const Postulantes = () => {
                       <td>{postulante.is_reviewed === false ? "No Revisado" : "Revisado" }</td>
                       <td>{postulante.process_status === false ? "No Aceptado" : "Aceptado" }</td>
                       <td>{postulante.total_score}</td>
-                      <td><Link to={`dashboard/usuario/${postulante.id}`}>{postulante.id}</Link></td>
+                      <td><Link to={`dashboard/usuario/${postulante.user.id}`} className="link__postulante">{postulante.user.id}</Link></td>
                     </tr>
                   )
                 )}

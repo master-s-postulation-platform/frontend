@@ -10,7 +10,8 @@
   <h3 align="center">Talent Jobs</h3>
 
   <p align="center">
-    Talent Jobs es una plataforma de postulación de empleo donde las mejores empresas buscan al mejor talento en tecnología.
+    Español: Talent Jobs es una plataforma de postulación de empleo donde las mejores empresas buscan al mejor talento en tecnología.
+    Inglés: Talent Jobs is the best platform to find a job where the best companies loof for the best tech talent.
     <br />
     <a href="https://github.com/master-s-postulation-platform/frontend"><strong>Explore the docs »</strong></a>
     <br />

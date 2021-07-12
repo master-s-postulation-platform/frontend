@@ -8,7 +8,7 @@ const ProfesionalExperience = () => {
     const [start, setStart] = useState("")
     const [end, setEnd] = useState("")
     const [description, setDescription] = useState("")
-    const [resultRequest, setResultRequeest] = useState([])
+    const [resultRequest, setResultRequest] = useState([])
 
     useEffect(() => {
         fetch('https://api.hardmakers.com/api/v1/profile/experience/',{
@@ -44,7 +44,7 @@ const ProfesionalExperience = () => {
         })
         .then(response => response.json())
         .then(data => {
-            setResultRequeest(data)
+            setResultRequest(data)
             setCompany("")
             setStart("")
             setEnd("")

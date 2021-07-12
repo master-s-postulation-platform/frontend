@@ -21,10 +21,7 @@ function getReport(userDetails, file_type){
             'Content-Type': 'application/json'
         }
   })
-  .then(response => {
-      response.blob()
-    }
-  )
+  .then(response => response.blob())
   .then(blob => {
     const url = window.URL.createObjectURL(new Blob([blob]));
     const link = document.createElement('a');

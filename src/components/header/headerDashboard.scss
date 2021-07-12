@@ -58,6 +58,10 @@
     color: $color-button-white;
     img {
       cursor: pointer;
+      padding-top: 15px;
+    }
+    img:hover {
+      width: 60px;
     }
   }
 }

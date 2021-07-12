@@ -7,6 +7,40 @@ import pdf from '../../images/Group652.png';
 import excel from '../../images/Group653.png';
 
 
+const API = 'https://api.hardmakers.com/api/v1/administration/candidates/?page=1&ippage=30&sort=desc&2xlsx='
+
+function getReport(userDetails, file_type){
+
+  let ext = '';
+  if (file_type == '1'){
+    ext = 'xlsx'
+  }
+  else {
+    ext = 'pdf'
+  }
+
+  fetch(`${API}${file_type}`, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Token ${userDetails.token}`,
+            'Content-Type': 'application/json'
+        }
+  })
+  .then(response => response.blob())
+  .then(blob => {
+    const url = window.URL.createObjectURL(new Blob([blob]));
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', `Report.${ext}`);
+    // 3. Append to html page
+    document.body.appendChild(link);
+    // 4. Force download
+    link.click();
+    // 5. Clean up and remove the link
+    link.parentNode.removeChild(link);
+  })
+}
+
 function HeaderDashboard({user}) {
   
   const userDetails = useAuthState();
@@ -26,6 +60,16 @@ function HeaderDashboard({user}) {
     } catch (error) {
       console.log(error)
     }
+  }
+
+
+  function handleDownloadPdf(e){
+    getReport(userDetails, '2')
+  }
+
+  function handleDownloadExcel(e){
+    console.log("excel clicked")
+    getReport(userDetails, '1')
   }
 
   return(
@@ -61,8 +105,8 @@ function HeaderDashboard({user}) {
             {
               title === true ?
               <div>
-                <img src={pdf} alt="" />
-                <img src={excel} alt="" />
+                <img src={pdf} onClick={handleDownloadPdf} alt="" />
+                <img src={excel} onClick={handleDownloadExcel} alt="" />
               </div>
                 :
                 ''

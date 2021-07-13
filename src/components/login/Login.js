@@ -31,7 +31,7 @@ const Login = (props) => {
     try {
       let response = await loginUser(dispatch, payload);
 
-      console.log(response)
+     /*  console.log(response) */
 
       if (response.error === true) {
         setActive(true)
@@ -41,12 +41,12 @@ const Login = (props) => {
 
         historia.push('/dashboard');
 
-        console.group('Incio de Sesion');
+        /* console.group('Incio de Sesion');
           
           console.log('Test');
           console.log(historia.push('/dashboard'))
         
-        console.groupEnd('Final')
+        console.groupEnd('Final') */
 
       }
     } catch (error) {

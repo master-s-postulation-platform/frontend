@@ -5,9 +5,8 @@ import {Link} from 'react-router-dom';
 
 const Postulantes = () => {
   const userDetails = useAuthState();
+
   
-  /* console.log(userDetails.userDetails.admin_auth)
-  console.log(userDetails) */
   
   const [postulantes, setPostulantes] = useState([]);
   const [count, setCount] = useState([]);
@@ -17,7 +16,7 @@ const Postulantes = () => {
   const [itemsPerPage, setItemsPerPage] = useState(18);
 
   
-  console.log(pages)
+  
   
   useEffect(() => {
     fetch('https://api.hardmakers.com/api/v1/administration/candidates/?page=1&ippage=18', {
@@ -35,8 +34,7 @@ const Postulantes = () => {
   }, [])
 
 
-  console.log(postulantes)
-  console.log(count)
+ 
   
   const pages = [];
   for (let i = 0; i <= Math.ceil(count.length / itemsPerPage); i++) {

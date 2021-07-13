@@ -6,15 +6,21 @@ import { useAuthState } from '../Context';
 
 const AppRoutes = ({component: Component, path, isPrivate, ...rest}) => {
     const userDetails = useAuthState();
-
+    console.log(userDetails);
     return (
         <Route
             path={path}
             render = { props =>
                 isPrivate && !Boolean(userDetails.token) ? (
+                    Boolean(userDetails.token) ? (
                         <Redirect
                         to={{pathname: "/login"}}
                         />
+                    ) : (
+                        <Redirect
+                        to={{pathname: "/dashboard"}}
+                        />
+                    )
                 ) : (
                     <Component {...props} />
                 )

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuthState } from '../../Context';
 import {Link} from 'react-router-dom';
+import Reportes1 from '../../images/Reportes1.svg';
 
 
 const Postulantes = () => {
@@ -34,7 +35,7 @@ const Postulantes = () => {
   }, [])
 
 
- 
+
   
   const pages = [];
   for (let i = 0; i <= Math.ceil(count.length / itemsPerPage); i++) {
@@ -48,6 +49,7 @@ const Postulantes = () => {
           <div className="section__grid">
               <div className="section__report">
                 <div className="section__reportLogo">
+                  <img src={Reportes1} alt="" />
                 </div>
                 <h1 className="section__reporTitle">Reportes</h1>
               </div>

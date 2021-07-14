@@ -63,7 +63,7 @@ function RouterDashboard() {
 
   return (
     <Switch>
-      <AppRoutes exact path='/dashboard' component={useAdmin === true ? Postulantes : Profile} isPrivate={false} />
+      <AppRoutes exact path='/dashboard' component={useAdmin === true ? Postulantes : Profile} isPrivate={true} />
       <AppRoutes exact path='/dashboard/jobs' component={Jobs} isPrivate={false} />
       <AppRoutes exact path='/dashboard/profesional' component={ProfesionalExperience} isPrivate={false} />
       <AppRoutes exact path='/dashboard/education' component={Education} isPrivate={false} />

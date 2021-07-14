@@ -12,7 +12,9 @@ export async function loginUser(dispatch, loginPayload) {
         dispatch({type: 'REQUEST_LOGIN'});
         let response = await fetch(`${API_URL}/token/login`,requestOptions);
         let data = await response.json();
-        console.log(data);
+        console.group('Inicio Login')
+            console.log(data);
+        console.groupEnd();
         
         if (data.error === false) {
             

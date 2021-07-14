@@ -29,7 +29,7 @@ export const AuthReducer = (initialState, action) => {
       return {
         ...initialState,
         userDetails: action.payload.user,
-        token: action.payload.auth_token,
+        token: action.payload.data.auth_token,
         admin: action.payload.admin_auth,
         loading: false,
       };

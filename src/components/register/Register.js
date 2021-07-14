@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import { loginRegister, useAuthState, useAuthDispatch } from '../../Context';
 
 const Register = () => {
-
+  
   const dispatch = useAuthDispatch();
   const { loading, errorMessage } = useAuthState();
 

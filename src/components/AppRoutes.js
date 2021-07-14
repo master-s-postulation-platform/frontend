@@ -12,13 +12,13 @@ const AppRoutes = ({component: Component, path, isPrivate, ...rest}) => {
             path={path}
             render = { props =>
                 isPrivate && !Boolean(userDetails.token) ? (
-                    Boolean(userDetails.token) ? (
-                        <Redirect
-                        to={{pathname: "/login"}}
-                        />
+                    !Boolean(userDetails.token) ? (
+                            <Redirect
+                            to="/dashboard"
+                            />
                     ) : (
                         <Redirect
-                        to={{pathname: "/dashboard"}}
+                        to={{pathname: "/login"}}
                         />
                     )
                 ) : (
@@ -31,3 +31,4 @@ const AppRoutes = ({component: Component, path, isPrivate, ...rest}) => {
 }
 
 export default AppRoutes;
+

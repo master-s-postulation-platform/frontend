@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom'
 import { useAuthState } from '../../Context';
-import Alert from '../../components/Alert/Alert.jsx'
+import Alert from '../../components/Alert/Alert.jsx';
+import detalle from '../../images/detalle.svg';
 
 const Usuario = () => {
 
@@ -40,6 +41,12 @@ const Usuario = () => {
           <section className="section__background">
             <section className="section__content">
               <section className="section__grid">
+                <div className="section__report">
+                  <div className="section__reportLogo">
+                    <img src={detalle}  alt="" />
+                  </div>
+                  <h1 className="section__reporTitle">Detalles de Usuario</h1>
+                </div>
                 <h3 className="form__title">Usuario {idUser}</h3>   
                 <div className="user">
                   <div className="user__container">

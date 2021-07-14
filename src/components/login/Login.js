@@ -10,6 +10,9 @@ import Profile from '../../pages/profile/Profile'
 const Login = (props) => {
   const location = useLocation();
   console.log(location.pathname);
+  const userDetails = useAuthState();
+    console.log(userDetails);
+
 
   const historia = useHistory()
 
